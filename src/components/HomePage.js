@@ -1,6 +1,5 @@
 import Fetch from "./hooks/Fetch";
-import MangaListView from "./MangaListView";
-import { FixedSizeList } from "react-window"
+import { renderMangaList } from "./RenderMangaList";
 
 export default function HomePage({ token }) {
     const BASE_URL = "https://mangaturn.games";
@@ -24,23 +23,3 @@ export default function HomePage({ token }) {
         />
     );
 };
-
-const renderMangaList = data => (
-    <FixedSizeList
-        height={window.innerHeight}
-        itemCount={data.mangaList.length}
-        itemSize={500}
-        width={window.innerWidth}
-
-        // "itemData" props is passed to child as "data"
-        itemData={data.mangaList}
-    >
-        {Row}
-    </FixedSizeList>
-); // "{}", instead of "()" and EROOOOOOOOR
-
-const Row = ({ data, index, style }) => (
-    <div style={style}>
-        {MangaListView(data[index])}
-    </div>
-);

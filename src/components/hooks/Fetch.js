@@ -16,7 +16,7 @@ export default function Fetch({
     useEffect(() => {
         axios.get(uri, config)
             .then(({ data }) => setData(data))
-            .then(() => setLoading(false)) // this go up and i'm goneeeeee
+            .then(() => setLoading(false)) // <== this go up and i'm goneeeeee
             .catch(setError);
     }, [uri, config]);
 
@@ -25,7 +25,4 @@ export default function Fetch({
         (data && renderSuccess(data)) ||
         (error && renderError(error))
     );
-    // if (loading) return renderLoading;
-    // if (data) return { children };
-    // if (error) return renderError;
 };
