@@ -1,66 +1,35 @@
-import { FixedSizeList } from "react-window";
+// Dummy cover, since it's expensive to loade images over network mobile-data-wise
+import cover from "./cover.png"
+import { Link } from "react-router-dom";
 
-// I used FixedSizeList from "react-window" to render
-// the data stored in state when scroll load
-
-export const renderMangaList = data => (
-    <FixedSizeList
-        height={window.innerHeight}
-        itemCount={data.mangaList.length}
-        itemSize={window.innerHeight * 1 / 3}
-        width={window.innerWidth}
-
-        // "itemData" props is passed to child as "data"
-        // see @https://react-window.vercel.app/#/api/FixedSizeList
-        itemData={data.mangaList}
-
-        // use each manga's id as list's key
-        // see @https://react-window.vercel.app/#/api/FixedSizeList
-        itemKey={(i, data) => data[i].id}
-    >
-        {Row}
-    </FixedSizeList>
-); // <== "{}", instead of "()" and EROOOOOOOOR
-
-// children function that return react functional components
-// render parent's data using another component
-
-const Row = ({ data, index, style }) => (
-    <div style={style}>
-        {MangaListView(data[index])}
-    </div>
-);
-
-// this function receives single manga object from list
-
-const MangaListView = ({
-    id,
-    name,
-    otherNames,
-    author,
-    coverImagePath,
-    description,
-    publishedDate,
-    status,
-    uploadedBy,
-    uploadedByUser = {},
-    views,
-    genereList = []
-}) => {
+const RenderMangaList = ({ data: { mangaList, totalElements } }) => {
     return (
-        <div>
-            <h1>{name}({otherNames})</h1>
-            <p>by {author}</p>
-            <img src={coverImagePath} alt={name} style={{ maxWidth: "20vw" }} />
-            <div style={{ whiteSpace: "wrap", overflow: "scroll", textOverflow: "ellipsis" }}>{description}</div>
-            <i>Relesed on: {publishedDate}</i>
-            <p>{status}</p>
-            <p>Translator: {uploadedBy}</p>
-            <em>{views} views</em>
-            <ul>
-                {genereList.map((n, i) =>
-                    <li key="{i}">{n}</li>)}
-            </ul>
+        <>
+            <div>Browse total {totalElements} Mangas.</div>
+            {mangaList.map(manga => RenderManga(manga))}
+        </>
+    );
+}
+
+export default RenderMangaList;
+
+const RenderManga = manga => {
+    return (
+        <div key={manga.id} style={{ height: "317px" }}>
+            {/*
+                We pass manga's every info to another component through Link
+                other component will receive from useLocation().state
+                Voila, one api fetch is saved!
+                See @ https://ui.dev/react-router-v5-pass-props-to-link/
+            */}
+            <Link to={{
+                pathname: `/${manga.id}`,
+                state: manga
+            }} >
+                <img src={cover} alt={manga.name} style={{ width: "165px" }} />
+            </Link>
+            <p>{manga.name}</p>
+            <p>{manga.uploadedBy}</p>
         </div>
     );
 };
