@@ -2,6 +2,11 @@ import { useLocation, useParams } from "react-router-dom"; // if user came from 
 import Fetch from "./hooks/Fetch"; // if user came from link
 import MangaDetail from "./MangaDetail";
 
+// This module is a step before actual rendering MangaDetails
+// It decide whether user came from MangaList or shared Link
+// Manga List --> use already provided detail from route (previous fetch's details)
+// Link --> no data present from route, perform another fetch
+
 const MangaDetailLink = () => {
     // See @ https://ui.dev/react-router-v5-pass-props-to-link/
 
@@ -25,13 +30,13 @@ const MangaDetailLink = () => {
         const CONFIG = {
             headers: { Authorization: `Bearer ${TOKEN}` }
         };
+
         return (
             <Fetch
                 uri={URL}
                 config={CONFIG}
                 renderSuccess={MangaDetail}
             />
-
         )
     }
 
@@ -41,7 +46,6 @@ const MangaDetailLink = () => {
     console.log('came from state');
     return MangaDetail({ data })
     // NOTICE I have structurize data, because MangaDetail will destructure it as data
-
 }
 
 export default MangaDetailLink;

@@ -1,4 +1,5 @@
 import Fetch from "./hooks/Fetch";
+import ChapterList from "./ChapterList";
 
 const MangaDetail = ({ data: {
     id,
@@ -41,35 +42,10 @@ const MangaDetail = ({ data: {
             <Fetch
                 uri={URL}
                 config={CONFIG}
-                renderSuccess={renderChapterList}
+                renderSuccess={ChapterList}
             />
-
         </>
     )
-
 };
-
-const renderChapterList = ({ data: { chapterList, totalElements } }) => {
-    return (
-        <>
-            <p>Total {totalElements} chapters.</p>
-            {chapterList.map(chapter => renderChapterDetail(chapter))}
-        </>
-    );
-};
-
-const renderChapterDetail = ({
-    id,
-    chapterName,
-    chapterNo,
-    type,
-    pages = [],
-    point,
-    totalPages,
-}) => (
-    <div key={id}>
-        {chapterNo}. {chapterName} ({totalPages} pages)
-    </div>
-);
 
 export default MangaDetail;
