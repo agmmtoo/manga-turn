@@ -14,6 +14,7 @@ const RenderMangaList = ({ data: { mangaList, totalElements } }) => {
 export default RenderMangaList;
 
 const RenderManga = manga => {
+
     return (
         <div key={manga.id} style={{ height: "317px" }}>
             {/*

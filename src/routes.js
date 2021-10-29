@@ -3,7 +3,7 @@ import App from "./App";
 import HomePage from "./components/HomePage";
 import Error404 from "./components/Error404";
 import LoginForm from "./components/LoginForm";
-import MangaDetail from "./components/MangaDetail";
+import MangaDetailLink from "./components/MangaDetailLink";
 
 import useToken from "./components/hooks/token-hook";
 
@@ -19,7 +19,7 @@ const AppRoutes = () => {
                     <HomePage token={token} />
                 </Route>
                 {/* If MangaDetail is called as children, NO ROUTE PROPS FOR YOU */}
-                <Route exact path="/:mangaId" component={MangaDetail} />
+                <Route exact path="/:mangaId" component={MangaDetailLink} />
                 <Route component={Error404} />
             </Switch>
         </App>
