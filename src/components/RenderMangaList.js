@@ -27,7 +27,7 @@ const RenderManga = manga => {
                 pathname: `/manga/${manga.id}`,
                 state: manga
             }} >
-                <img src={cover} alt={manga.name} style={{ width: "165px" }} />
+                <img src={manga.coverImagePath} alt={manga.name} style={{ width: "165px" }} />
             </Link>
             <p>{manga.name}</p>
             <p>{manga.uploadedBy}</p>
