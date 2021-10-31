@@ -19,6 +19,7 @@ const AppRoutes = () => {
                 <Route exact path="/">
                     <HomePage token={token} />
                 </Route>
+
                 {/* If MangaDetail is called as children, NO ROUTE PROPS FOR YOU */}
                 <Route exact path="/manga/:mangaId" component={MangaDetailLink} />
                 <Route exact path="/manga/:mangaId/chapter/:chapterId" component={ChapterDetail} />
