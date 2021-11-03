@@ -1,6 +1,8 @@
+import "./index.css";
+
 const App = ({ children }) =>
-  <div>
-    Manga Turn
+  <div className="text-center">
+    <h1 className="font-semibold uppercase">Manga Turn</h1>
     {children}
   </div>
 

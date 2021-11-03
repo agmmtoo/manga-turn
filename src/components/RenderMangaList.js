@@ -6,7 +6,9 @@ const RenderMangaList = ({ data: { mangaList, totalElements } }) => {
     return (
         <>
             <div>Browse total {totalElements} Mangas.</div>
-            {mangaList.map(manga => RenderManga(manga))}
+            <div className="grid grid-cols-2 justify-items-center md:grid-cols-3 lg:grid-cols-4">
+                {mangaList.map(manga => RenderManga(manga))}
+            </div>
         </>
     );
 }
@@ -16,21 +18,25 @@ export default RenderMangaList;
 const RenderManga = manga => {
 
     return (
-        <div key={manga.id} style={{ height: "317px" }}>
+
+        <div key={manga.id} className="text-center shadow-lg rounded-md px-1 py-5 w-4/5">
             {/*
                 We pass manga's every info to another component through Link
                 other component will receive from useLocation().state
                 Voila, one api fetch is saved!
                 See @ https://ui.dev/react-router-v5-pass-props-to-link/
             */}
+
+            <img src={dummyCover} alt={manga.name} className="rounded-sm" />
             <Link to={{
                 pathname: `/manga/${manga.id}`,
                 state: manga
             }} >
-                <img src={dummyCover} alt={manga.name} style={{ width: "165px" }} />
+                <div className="py-2">
+                    <p className="overflow-hiddenfont-semibold">{manga.name}</p>
+                    <p className="">{manga.uploadedBy}</p>
+                </div>
             </Link>
-            <p>{manga.name}</p>
-            <p>{manga.uploadedBy}</p>
         </div>
     );
 };

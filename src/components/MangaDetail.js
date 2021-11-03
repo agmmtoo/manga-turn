@@ -1,5 +1,6 @@
 import Fetch from "./hooks/Fetch";
 import ChapterList from "./ChapterList";
+import "../index.css";
 
 const MangaDetail = ({ data: {
     id,
@@ -23,22 +24,19 @@ const MangaDetail = ({ data: {
 
     return (
         <>
-            <h1>{name}</h1>
-            <h2>{otherNames}</h2>
-            <img src={coverImagePath} alt={name} />
-            <p>{author}</p>
-            <p>{publishedDate}</p>
-            <p>{status}</p>
-            <p>{uploadedBy}</p>
-            <p>{views}</p>
-            {genereList.map(genere => (
-                <i>{genere}</i>
-            ))}
-            <p>{description}</p>
-
-            <h1>Chapters</h1>
-            <i>get chapters here using {id}</i>
-
+            <div className="p-2 m-2 flex flex-wrap justify-center shadow-lg">
+                <h1 className="w-full">{name}</h1>
+                <h2 className="w-full">{otherNames}</h2>
+                <img src={coverImagePath} alt={name} className="max-w-xs shadow-md lg:w-1/2" />
+                <div className="py-5 m-5 text-left w-full lg:w-1/2">
+                    <p>{author}</p>
+                    <p>{publishedDate}</p>
+                    <p>{status}</p>
+                    <p>{views}</p>
+                    <a href="#/" className="text-sm py-5">{uploadedBy}</a>
+                    <div className="my-2 text-justify">{description}</div>
+                </div>
+            </div>
             <Fetch
                 uri={URL}
                 config={CONFIG}
