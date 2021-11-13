@@ -27,7 +27,7 @@ const RenderManga = manga => {
                 See @ https://ui.dev/react-router-v5-pass-props-to-link/
             */}
 
-            <img src={dummyCover} alt={manga.name} className="rounded-sm" />
+            <img src={manga.coverImagePath} alt={manga.name} className="rounded-sm" />
             <Link to={{
                 pathname: `/manga/${manga.id}`,
                 state: manga

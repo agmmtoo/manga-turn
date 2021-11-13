@@ -4,8 +4,8 @@ import "../index.css";
 
 export default function LoginForm({ setToken }) {
     const [mode, setMode] = useState('login');
-    const [username, setUsername] = useState('test');
-    const [password, setPassword] = useState('test');
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
     const [error, setError] = useState();
 
     const handleSubmit = async e => {
