@@ -1,5 +1,6 @@
 import { useState } from "react";
 import LoginFetch from "./hooks/LoginFetch";
+import "../index.css";
 
 export default function LoginForm({ setToken }) {
     const [mode, setMode] = useState('login');
@@ -32,14 +33,14 @@ export default function LoginForm({ setToken }) {
         setMode(mode === "login" ? "signup" : "login");
     }
     return (
-        <>
-            {error ? <p>{error}</p> : <p>Use this form to {mode}</p>}
-            <form onSubmit={handleSubmit}>
-                <input type="text" value={username} onChange={e => setUsername(e.target.value)} required />
-                <input type="password" value={password} onChange={e => setPassword(e.target.value)} required />
-                <button>{mode}</button>
+        <div className="mt-10 w-full mx-auto max-w-md text-center ">
+            {error ? <p className="text-red-600 font-medium uppercase">{error}</p> : <p className="font-medium uppercase">Use this form to {mode}</p>}
+            <form onSubmit={handleSubmit} className="m-10 p-5 shadow-lg rounded flex flex-col justify-center gap-5">
+                <input type="text" value={username} onChange={e => setUsername(e.target.value)} placeholder="Username" required className="appearance-none bg-transparent shadow-inner py-2 px-2" />
+                <input type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="Password" required className="appearance-none bg-transparent py-2 px-2" />
+                <button className="px-4 py-2 capitalize font-semibold border rounded border-black dark:border-white ">{mode}</button>
             </form>
-            <p>Or, you can <button onClick={switchMode}>{mode === "login" ? "signup" : "login"}</button></p>
-        </>
+            <button onClick={switchMode} className="uppercase">{mode === "login" ? "signup" : "login"}</button>
+        </div>
     );
 }
