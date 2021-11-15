@@ -1,4 +1,4 @@
-import { Route, Switch } from "react-router";
+import { Route, Switch } from "react-router-dom";
 import App from "./App";
 import HomePage from "./components/HomePage";
 import Error404 from "./components/Error404";

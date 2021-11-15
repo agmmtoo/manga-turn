@@ -2,7 +2,9 @@
 import dummyCover from "./cover.png"
 import { Link } from "react-router-dom";
 
-const RenderMangaList = ({ data: { mangaList, totalElements } }) => {
+const RenderMangaList = (res) => {
+    const { data } = res;
+    const { totalElements, mangaList } = data;
     return (
         <>
             <div>Browse total {totalElements} Mangas.</div>
