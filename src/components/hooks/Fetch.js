@@ -5,7 +5,7 @@ export default function Fetch({
     uri,
     config = {},
     renderLoading = <p>loading...</p>,
-    renderError = e => e,
+    renderError = e => <p style={{ color: 'red' }}>{e.message}</p>,
     renderSuccess = f => f
 }) {
 
@@ -13,16 +13,38 @@ export default function Fetch({
     const [data, setData] = useState();
     const [error, setError] = useState();
 
-    useEffect(() => {
-        axios.get(uri, config)
-            .then(response => setData(response))
-            .then(() => setLoading(false)) // <== this go up and i'm goneeeeee
-            .catch(setError);
-    }, [uri, config]);
+    // const [c, storeCache] = useCache(uri);
+    const cache = JSON.parse(window.sessionStorage.getItem(uri));
 
-    return (
-        (loading && renderLoading) ||
-        (data && renderSuccess(data)) ||
-        (error && renderError(error))
-    );
+    useEffect(() => {
+        if (cache) {
+            console.log('found cache');
+            setLoading(false);
+            setData(cache);
+        }
+        else {
+            const cancelTokenSource = axios.CancelToken.source();
+
+            axios.get(uri, { ...config, cancelToken: cancelTokenSource.token })
+                .then(response => {
+                    setData(response);
+                    console.log('found no cache, setting cache');
+                    window.sessionStorage.setItem(uri, JSON.stringify(response));
+                })
+                .then(() => setLoading(false)) // <== this go up and i'm goneeeeee
+                .catch(e => {
+                    setError(e);
+                    console.log(e);
+                    setLoading(false);
+                });
+
+            // component unmount
+            return () => cancelTokenSource.cancel();
+        }
+
+    }, [uri]);
+
+    if (loading) return renderLoading;
+    if (data) return renderSuccess(data);
+    if (error) return renderError(error);
 };
