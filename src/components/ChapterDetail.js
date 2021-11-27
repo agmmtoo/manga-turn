@@ -1,8 +1,9 @@
 import { useParams } from "react-router";
 import Fetch from "./hooks/Fetch";
+import renderChapterDetail from "./renderChapterDetail";
 
 const ChapterDetail = () => {
-    const { chapterId } = useParams();
+    const { mangaId, chapterId } = useParams();
 
     const URL = `https://mangaturn.games/dev/api/chapter/${chapterId}?size=1000`;
     const TOKEN = JSON.parse(localStorage.getItem("token"));
@@ -20,17 +21,3 @@ const ChapterDetail = () => {
 };
 
 export default ChapterDetail;
-
-const renderChapterDetail = ({ data: chapter }) => (
-    <div className="chapterClass">
-        <h1>{chapter.chapterName}</h1>
-        {chapter.pages.map(renderPage)}
-    </div>
-);
-
-const renderPage = page => (
-    <div key={page.id}>
-        <p>{page.pageNo}</p>
-        <img src={page.contentPath} alt={page.pageNo} />
-    </div>
-);

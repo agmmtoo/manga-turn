@@ -1,6 +1,5 @@
 import { useState } from "react";
 import LoginFetch from "./hooks/LoginFetch";
-import useUser from "./hooks/user-hook";
 import "../index.css";
 
 export default function LoginForm({ setToken }) {
@@ -8,7 +7,6 @@ export default function LoginForm({ setToken }) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState();
-    const [, putUser] = useUser();
 
     const handleSubmit = async e => {
         setUsername("");
@@ -22,7 +20,6 @@ export default function LoginForm({ setToken }) {
         if (res) switch (res.status) {
             case 200:
                 setToken(res.data.accessToken);
-                putUser(res.data.user);
                 break;
             case 400: setError(res.data.message);
                 break;
