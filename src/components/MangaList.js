@@ -1,7 +1,7 @@
 import Fetch from "./hooks/Fetch";
 import renderMangaList from "./renderMangaList";
 
-export default function HomePage({ token }) {
+export default function HomePage() {
     const BASE_URL = "https://mangaturn.games";
     const API_URL = "/dev/api";
     const MANGA_LIST = "/all-manga";
@@ -11,14 +11,9 @@ export default function HomePage({ token }) {
     // it may increase network load
     const SIZE_VALUE = 1000;
 
-    const config = {
-        headers: { Authorization: `Bearer ${token}` }
-    };
-
     return (
         <Fetch
             uri={`${BASE_URL}${API_URL}${MANGA_LIST}?${SIZE_PARAM}${SIZE_VALUE}`}
-            config={config}
             renderSuccess={renderMangaList}
         />
     );

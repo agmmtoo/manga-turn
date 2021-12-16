@@ -17,10 +17,6 @@ const renderMangaDetail = ({ data: {
     genereList = []
 } }) => {
     const URL = `https://mangaturn.games/dev/api/all-chapter/${id}?size=1000`;
-    const TOKEN = JSON.parse(localStorage.getItem("token"));
-    const CONFIG = {
-        headers: { Authorization: `Bearer ${TOKEN}` }
-    };
 
     return (
         <>
@@ -39,7 +35,6 @@ const renderMangaDetail = ({ data: {
             </div>
             <Fetch
                 uri={URL}
-                config={CONFIG}
                 renderSuccess={renderChapterList}
             />
         </>

@@ -1,9 +1,9 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useDataContext } from "./data-context";
 
 export default function Fetch({
     uri,
-    config = {},
     renderLoading = <p>loading...</p>,
     renderError = e => {
         return (
@@ -15,15 +15,16 @@ export default function Fetch({
     },
     renderSuccess,
 }) {
-
+    const { token } = useDataContext();
     const [loading, setLoading] = useState(true);
     const [data, setData] = useState();
     const [error, setError] = useState();
 
     useEffect(() => {
         const cancelTokenSource = axios.CancelToken.source();
+        console.log('I got token and it\'s', token)
 
-        axios.get(uri, { ...config, cancelToken: cancelTokenSource.token })
+        axios.get(uri, { headers: { Authorization: `Bearer ${token}` }, cancelToken: cancelTokenSource.token })
             .then(setData)
             .then(() => setLoading(false)) // <== this go up and i'm goneeeeee
             .catch(e => {
@@ -35,7 +36,7 @@ export default function Fetch({
         // component unmount
         return () => cancelTokenSource.cancel();
 
-    }, [uri, config]);
+    }, [token, uri]);
 
     if (loading) return renderLoading;
     if (data) return renderSuccess(data);

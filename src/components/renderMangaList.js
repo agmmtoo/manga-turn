@@ -1,5 +1,5 @@
 // Dummy cover, since it's expensive to loade images over network mobile-data-wise
-// import dummyCover from "./cover.png";
+import dummyCover from "./cover.png";
 import { Link } from "react-router-dom";
 
 const renderMangaList = ({ data }) => {
@@ -21,9 +21,9 @@ const Manga = manga => {
         <div key={manga.id} className="text-center shadow-lg rounded-md px-1 my-5 py-5 w-4/5 md:w-3/5">
 
             {/* manga.coverImagePath */}
-            <div>
-                <img src={manga.coverImagePath} alt={manga.name} loading="lazy" className="h-60 rounded-sm object-cover mx-auto" />
-            </div>
+            
+                <img src={manga.coverImagePath} width="142" height="240" alt={manga.name} loading="lazy" className="h-60 rounded-sm object-cover mx-auto" />
+            
 
             <Link to={`/manga/${manga.id}`}>
                 <div className="py-2">
