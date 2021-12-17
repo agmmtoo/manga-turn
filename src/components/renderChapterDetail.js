@@ -1,7 +1,7 @@
-const renderChapterDetail = ({ data: chapter }) => (
+const renderChapterDetail = ({ chapter, pages }) => (
     <div className="chapterClass">
         <h1>{chapter.chapterName}</h1>
-        {chapter.pages.map(renderPage)}
+        {pages.map(renderPage)}
     </div>
 );
 

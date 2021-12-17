@@ -22,10 +22,9 @@ export default function Fetch({
 
     useEffect(() => {
         const cancelTokenSource = axios.CancelToken.source();
-        console.log('I got token and it\'s', token)
 
         axios.get(uri, { headers: { Authorization: `Bearer ${token}` }, cancelToken: cancelTokenSource.token })
-            .then(setData)
+            .then(({ data }) => { console.log(data); setData(data) })
             .then(() => setLoading(false)) // <== this go up and i'm goneeeeee
             .catch(e => {
                 setError(e);
