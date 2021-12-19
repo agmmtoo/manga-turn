@@ -9,13 +9,12 @@ const App = ({ children }) => {
 
   if (!token) return <LoginForm setToken={setToken} />
   return (
-    <div className="text-center">
-      <h1 className="font-semibold uppercase my-1"><a href="/">Manga Turn</a></h1>
+    <main>
       <Menu />
       <UserContextProvider>
         {children}
       </UserContextProvider>
-    </div>
+    </main>
   );
 }
 

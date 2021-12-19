@@ -2,6 +2,8 @@ import Fetch from "./hooks/Fetch";
 import renderChapterList from "./renderChapterList";
 import "../index.css";
 
+import { baseUrl, apiUrl, allChapter } from "../api-endpoints";
+
 const renderMangaDetail = ({
     id,
     name,
@@ -16,7 +18,7 @@ const renderMangaDetail = ({
     views,
     genereList = []
 }) => {
-    const URL = `https://mangaturn.games/dev/api/all-chapter/${id}?size=1000`;
+    const URL = `${baseUrl}${apiUrl}${allChapter}${id}?size=1000`;
 
     return (
         <>

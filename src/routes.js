@@ -4,15 +4,14 @@ import MangaList from "./components/MangaList";
 import Error404 from "./components/Error404";
 import MangaDetail from "./components/MangaDetail";
 import ChapterDetail from "./components/ChapterDetail";
+import Home from "./components/Home";
 
 const AppRoutes = () => {
     return (
         <App>
             <Switch>
-                <Route exact path="/">
-                    <MangaList />
-                </Route>
-                {/* If MangaDetail is called as children, NO ROUTE PROPS FOR YOU */}
+                <Route exact path="/" component={Home} />
+                <Route exact path="/mangas" component={MangaList} />
                 <Route exact path="/manga/:mangaId" component={MangaDetail} />
                 <Route exact path="/manga/:mangaId/chapter/:chapterId" component={ChapterDetail} />
                 <Route component={Error404} />

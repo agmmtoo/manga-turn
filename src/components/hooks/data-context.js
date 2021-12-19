@@ -11,13 +11,12 @@ export const useDataContext = () => useContext(DataContext);
 // provider parent component need to be warpped in this exported component
 // add values to provide data to childern consumers
 export default function UserContextProvider({ children }) {
-    const [user, setUser] = useState();
     const [token, setToken] = useState(JSON.parse(localStorage.getItem("token")));
-    const [mangas, setMangas] = useState();
-    const [manga, setManga] = useState();
+    const cache = {};
+    const setCache = (uri, data) => cache[uri] = data;
 
     return (
-        <DataContext.Provider value={{ token, setToken, user, setUser, mangas, setMangas, manga, setManga }}>
+        <DataContext.Provider value={{ token, setToken, cache, setCache }}>
             {children}
         </DataContext.Provider>
     )

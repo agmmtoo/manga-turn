@@ -1,4 +1,5 @@
 import "../index.css";
+import { Link } from "react-router-dom";
 
 // If I use useParams hook from 'react',
 // "hook order" react warning show
@@ -27,10 +28,10 @@ const Chapter = ({
 }) => {
     const mangaId = window.location.pathname.split("/")[2];
     return (
-        <a key={id} className="hover:shadow-lg" href={`/manga/${mangaId}/chapter/${id}`}>
+        <Link key={id} className="hover:shadow-lg" to={`/manga/${mangaId}/chapter/${id}`}>
             <div className="px-10 py-2" key={id}>
                 {chapterNo}. {chapterName} ({totalPages} pages)
             </div>
-        </a>
+        </Link>
     );
 };

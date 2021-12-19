@@ -15,29 +15,34 @@ export default function Fetch({
     },
     renderSuccess,
 }) {
-    const { token } = useDataContext();
+    const { token, cache, setCache } = useDataContext();
     const [loading, setLoading] = useState(true);
     const [data, setData] = useState();
     const [error, setError] = useState();
 
     useEffect(() => {
         const cancelTokenSource = axios.CancelToken.source();
-
-        axios.get(uri, { headers: { Authorization: `Bearer ${token}` }, cancelToken: cancelTokenSource.token })
-            .then(({ data }) => { console.log(data); setData(data) })
-            .then(() => setLoading(false)) // <== this go up and i'm goneeeeee
-            .catch(e => {
-                setError(e);
-                console.log(e);
-                setLoading(false);
-            });
-
+        if (cache && cache[uri]) {
+            setLoading(false);
+            setData(cache[uri]);
+        }
+        else {
+            axios.get(uri, { headers: { Authorization: `Bearer ${token}` }, cancelToken: cancelTokenSource.token })
+                .then(({ data }) => { setCache(uri, data); setData(data) })
+                .then(() => setLoading(false)) // <== this go up and i'm goneeeeee
+                .catch(e => {
+                    setError(e);
+                    console.log(e);
+                    setLoading(false);
+                });
+        }
         // component unmount
         return () => cancelTokenSource.cancel();
 
-    }, [token, uri]);
+    }, [cache, setCache, token, uri]);
 
     if (loading) return renderLoading;
+    if (error) return renderError(error)
     if (data) return renderSuccess(data);
-    if (error) return renderError(error);
+
 };
