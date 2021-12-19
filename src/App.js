@@ -1,13 +1,13 @@
 import "./index.css";
 import useToken from "./components/hooks/token-hook";
-import LoginForm from "./components/LoginForm";
+import NoToken from "./components/NoToken";
 import Menu from "./components/Menu";
 import UserContextProvider from "./components/hooks/data-context";
 
 const App = ({ children }) => {
   const [token, setToken] = useToken();
 
-  if (!token) return <LoginForm setToken={setToken} />
+  if (!token) return <NoToken setToken={setToken} />
   return (
     <main>
       <Menu />
