@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-gray-200 transition-all;
+    @apply bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-gray-200;
   }
 
   h1 {
@@ -17,4 +17,8 @@
   p {
     @apply text-sm;
   }
- }
+
+  a svg {
+    @apply inline-flex align-baseline;
+  }
+}

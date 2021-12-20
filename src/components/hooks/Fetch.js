@@ -1,10 +1,11 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useDataContext } from "./data-context";
+import { ImSpinner9 } from "react-icons/im";
 
 export default function Fetch({
     uri,
-    renderLoading = <p>loading...</p>,
+    renderLoading = <ImSpinner9 className="animate-spin" />,
     renderError = e => {
         return (
             <>

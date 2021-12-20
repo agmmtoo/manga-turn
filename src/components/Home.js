@@ -5,7 +5,6 @@ const Home = () => {
     return (
         <div>
             <header>Welcome</header>
-            <small>{token}</small>
         </div>
 
     );
