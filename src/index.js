@@ -2,15 +2,19 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import AppRoutes from './routes';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Link } from 'react-router-dom';
 
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <header>
-        <h1 className="font-semibold uppercase my-1"><a href="/">Manga Turn</a></h1>
-        <nav><a href="/about">About</a></nav>
+      <header className="flex flex-col">
+        <h1 className="font-semibold uppercase py-6 text-2xl mx-auto"><Link to="/">Manga Turn</Link></h1>
+        <nav className="flex flex-row pb-3 justify-around">
+          <Link to="/">Home</Link>
+          <Link to="/about">About</Link>
+          <Link to="/blog">Blog</Link>
+        </nav>
       </header>
       <AppRoutes />
     </BrowserRouter>

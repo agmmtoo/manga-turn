@@ -1,4 +1,4 @@
-import { ImMenu3, ImMenu4, ImHome, ImDatabase, ImUser } from "react-icons/im";
+import { ImMenu } from "react-icons/im";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -7,9 +7,7 @@ const Menu = () => {
     return (
         <div className="text-center">
             <button onClick={() => setOpen(!open)}>
-                {open
-                    ? <ImMenu4 size={30} />
-                    : <ImMenu3 size={30} />}
+                <ImMenu size={35} />
             </button>
             {open
                 ? <Nav />
@@ -19,12 +17,10 @@ const Menu = () => {
 };
 
 const Nav = () =>
-    <nav>
-        <div className="flex flex-col items-center gap-2 mt-2">
-            <Link to="/mangas"><ImDatabase /> All</Link>
-            <Link to="/"><ImHome /> Home</Link>
-            <Link to="/profile"><ImUser /> Profile</Link>
-        </div>
+    <nav className="flex flex-col py-5 gap-8">
+        <Link to="/mangas">All Manga</Link>
+        <Link to="/">Home</Link>
+        <Link to="/profile">Profile</Link>
     </nav>
 
 export default Menu;
