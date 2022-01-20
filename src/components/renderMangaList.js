@@ -17,12 +17,12 @@ const Manga = manga => {
 
     return (
 
-        <div key={manga.id} className="text-center shadow-lg rounded-md px-1 my-5 py-5 w-4/5 md:w-3/5">
+        <div key={manga.id} className="text-center shadow-lg rounded-md mt-12">
+            {/* px-1 my-5 py-5 w-4/5 md:w-3/5 */}
 
             {/* manga.coverImagePath */}
 
-            <img src={dummyCover} width="142" height="240" alt={manga.name} loading="lazy" className="h-60 rounded-sm object-cover mx-auto" />
-
+            <img src={dummyCover} width="140" height="220" alt={manga.name} loading="lazy" className="rounded-sm object-cover mx-auto" />
 
             <Link to={`/manga/${manga.id}`}>
                 <div className="py-2">
