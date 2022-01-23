@@ -17,7 +17,7 @@ const Manga = manga => {
 
     return (
 
-        <div key={manga.id} className="text-center shadow-lg rounded-md mt-12">
+        <div key={manga.id} className="text-center shadow-md mt-12 w-40">
             {/* px-1 my-5 py-5 w-4/5 md:w-3/5 */}
 
             {/* manga.coverImagePath */}
@@ -25,9 +25,9 @@ const Manga = manga => {
             <img src={dummyCover} width="140" height="220" alt={manga.name} loading="lazy" className="rounded-sm object-cover mx-auto" />
 
             <Link to={`/manga/${manga.id}`}>
-                <div className="py-2">
-                    <p className="overflow-hidden font-semibold">{manga.name}</p>
-                    <p className="">{manga.uploadedBy}</p>
+                <div className="p-2">
+                    <div className="overflow-hidden overflow-ellipsis whitespace-nowrap">{manga.name}</div>
+                    <div className="overflow-hidden overflow-ellipsis whitespace-nowrap">{manga.uploadedBy}</div>
                 </div>
             </Link>
 
