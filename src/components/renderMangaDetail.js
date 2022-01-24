@@ -1,7 +1,7 @@
 import Fetch from "./hooks/Fetch";
 import renderChapterList from "./renderChapterList";
 import "../index.css";
-import { ImHeart } from "react-icons/im";
+import { ImStarEmpty, ImPen, ImHourGlass, ImCalendar, ImEye } from "react-icons/im";
 
 import { baseUrl, apiUrl, allChapter } from "../api-endpoints";
 
@@ -33,31 +33,21 @@ const renderMangaDetail = ({
                 <div className="my-7 flex flex-wrap justify-center gap-2 text-sm">
                     {genreList.map(g => <div key={g.id} className="border px-3 py-1 border-gray-600 dark:border-gray-300 rounded-3xl">{g.name}</div>)}
                 </div>
+                <div className="my-7 text-xs flex mx-auto justify-evenly max-w-md">
+                    <div><ImPen size={15} /></div><div>{author}</div>
+                    <div><ImCalendar size={15} /></div><div>{publishedDate}</div>
+                    <div><ImHourGlass size={15} /></div><div>{status}</div>
+                    <div><ImEye size={15} /></div><div>{views}</div>
+                </div>
                 <div className="border-t border-b border-gray-400 dark:border-gray-500 flex justify-around place-items-center">
                     <div className="p-5 cursor-pointer">
                         {uploadedBy}
                     </div>
                     <div className="p-5 cursor-pointer">
-                        <ImHeart size={35} />
+                        <ImStarEmpty size={35} />
                     </div>
                 </div>
-                <div className="flex flex-wrap my-7">
-                    <div className="text-right w-1/3">
-                        Author <br />
-                        Published<br />
-                        Updated<br />
-                        Status<br />
-                        Views
-                    </div>
-                    <div className="text-left w-2/3">
-                        {author}<br />
-                        {publishedDate}<br />
-                        {updatedDateInMilliSeconds}<br />
-                        {status}<br />
-                        {views}
-                    </div>
-                    <div className="m-7 text-justify w-full">{description}</div>
-                </div>
+                <div className="m-7 text-justify">{description}</div>
             </div>
             <Fetch
                 uri={URL}

@@ -29,8 +29,8 @@ const Chapter = ({
     const mangaId = window.location.pathname.split("/")[2];
     return (
         <Link key={id} className="hover:shadow-lg" to={`/manga/${mangaId}/chapter/${id}`}>
-            <div className="px-10 py-2" key={id}>
-                {chapterNo}. {chapterName} ({totalPages} pages)
+            <div className="px-10 py-2 text-sm" key={id}>
+                {chapterName} ({totalPages} pages)
             </div>
         </Link>
     );

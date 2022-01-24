@@ -26,8 +26,8 @@ const Manga = manga => {
 
             <Link to={`/manga/${manga.id}`}>
                 <div className="p-2">
-                    <div className="overflow-hidden overflow-ellipsis whitespace-nowrap">{manga.name}</div>
-                    <div className="overflow-hidden overflow-ellipsis whitespace-nowrap">{manga.uploadedBy}</div>
+                    <div className="overflow-hidden overflow-ellipsis whitespace-nowrap text-sm">{manga.name}</div>
+                    <div className="overflow-hidden overflow-ellipsis whitespace-nowrap text-xs">{manga.uploadedBy}</div>
                 </div>
             </Link>
 
