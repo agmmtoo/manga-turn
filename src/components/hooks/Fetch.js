@@ -15,6 +15,9 @@ export default function Fetch({
         );
     },
     renderSuccess,
+    useCache = false,
+    reloadVar = false,
+    reloadMethod = () => { },
 }) {
     const { token, cache, setCache } = useDataContext();
     const [loading, setLoading] = useState(true);
@@ -29,7 +32,10 @@ export default function Fetch({
         }
         else {
             axios.get(uri, { headers: { Authorization: `Bearer ${token}` }, cancelToken: cancelTokenSource.token })
-                .then(({ data }) => { setCache(uri, data); setData(data) })
+                .then(({ data }) => {
+                    if (useCache) setCache(uri, data);
+                    setData(data)
+                })
                 .then(() => setLoading(false)) // <== this go up and i'm goneeeeee
                 .catch(e => {
                     setError(e);
@@ -40,10 +46,10 @@ export default function Fetch({
         // component unmount
         return () => cancelTokenSource.cancel();
 
-    }, [cache, setCache, token, uri]);
+    }, [reloadVar, cache, setCache, token, uri]);
 
     if (loading) return renderLoading;
     if (error) return renderError(error)
-    if (data) return renderSuccess(data);
+    if (data) return renderSuccess(data, reloadMethod);
 
 };

@@ -22,7 +22,7 @@ const Manga = manga => {
 
             {/* manga.coverImagePath */}
 
-            <img src={dummyCover} width="140" height="220" alt={manga.name} loading="lazy" className="rounded-sm object-cover mx-auto" />
+            <img src={dummyCover} alt={manga.name} className="w-36 h-56 object-cover mx-auto" width="144" height="224" loading="lazy" />
 
             <Link to={`/manga/${manga.id}`}>
                 <div className="p-2">
