@@ -5,7 +5,7 @@ import { ImStarFull, ImStarEmpty, ImPen, ImHourGlass, ImCalendar, ImEye } from "
 
 import { baseUrl, apiUrl, allChapter, addFavourite, removeFavourite } from "../api-endpoints";
 import axios from "axios";
-import { useDataContext } from "./hooks/data-context";
+// import { useDataContext } from "./hooks/data-context";
 
 const renderMangaDetail = ({
     id,
@@ -22,17 +22,17 @@ const renderMangaDetail = ({
     views,
     genreList = [],
     favourite,
-}, reloadMethod) => {
+}, reloadMethod, token) => {
     const URL = `${baseUrl}${apiUrl}${allChapter}${id}?size=1000`;
 
     // eslint-disable-next-line react-hooks/rules-of-hooks
-    const { token } = useDataContext();
+    // const { token } = useDataContext();
 
     const handleFavourite = () => {
         favourite
             ? axios.delete(`${baseUrl}${apiUrl}${removeFavourite}${id}`, { headers: { Authorization: `Bearer ${token}` } }).then(({ data: { message } }) => console.log(message))
             : axios.post(`${baseUrl}${apiUrl}${addFavourite}${id}`, {}, { headers: { Authorization: `Bearer ${token}` } }).then(({ data: { message } }) => console.log(message));
-        reloadMethod(favourite);
+        reloadMethod(Math.random());
     };
 
     return (

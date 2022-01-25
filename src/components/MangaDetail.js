@@ -9,7 +9,7 @@ const MangaDetail = () => {
 
     // get mangaId from url bar
     const { mangaId } = useParams();
-    const [fav, setFav] = useState({});
+    const [fav, setFav] = useState(0);
 
     const URL = `${baseUrl}${apiUrl}${manga}${mangaId}`;
 

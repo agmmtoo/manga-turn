@@ -50,6 +50,6 @@ export default function Fetch({
 
     if (loading) return renderLoading;
     if (error) return renderError(error)
-    if (data) return renderSuccess(data, reloadMethod);
+    if (data) return renderSuccess(data, reloadMethod, token);
 
 };
