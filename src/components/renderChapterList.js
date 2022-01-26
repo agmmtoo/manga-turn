@@ -19,8 +19,9 @@ const renderChapterList = (data, token, setForceRefetch) => {
     }
 
     const handlePurchase = ({ target: { dataset: { cid } } }) => {
-        axios.post(`${baseUrl}${apiUrl}${purchaseChapter}${cid}`, {}, { headers: { Authorization: `Bearer ${token}` } }).then(({ data: { message } }) => console.log(message));
-        setForceRefetch(cid);
+        axios.post(`${baseUrl}${apiUrl}${purchaseChapter}${cid}`, {}, { headers: { Authorization: `Bearer ${token}` } })
+            .then(({ data: { message } }) => console.log(message))
+            .then(() => setForceRefetch(cid));
     }
 
     return (

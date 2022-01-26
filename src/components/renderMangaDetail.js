@@ -22,17 +22,17 @@ const renderMangaDetail = ({
     views,
     genreList = [],
     favourite,
-}, reloadMethod, token) => {
+}, token, setForceRefetch) => {
     const URL = `${baseUrl}${apiUrl}${allChapter}${id}?size=1000`;
-
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    // const { token } = useDataContext();
 
     const handleFavourite = () => {
         favourite
-            ? axios.delete(`${baseUrl}${apiUrl}${removeFavourite}${id}`, { headers: { Authorization: `Bearer ${token}` } }).then(({ data: { message } }) => console.log(message))
-            : axios.post(`${baseUrl}${apiUrl}${addFavourite}${id}`, {}, { headers: { Authorization: `Bearer ${token}` } }).then(({ data: { message } }) => console.log(message));
-        reloadMethod(Math.random());
+            ? axios.delete(`${baseUrl}${apiUrl}${removeFavourite}${id}`, { headers: { Authorization: `Bearer ${token}` } })
+                .then(({ data: { message } }) => console.log(message))
+                .then(() => setForceRefetch(Math.random()))
+            : axios.post(`${baseUrl}${apiUrl}${addFavourite}${id}`, {}, { headers: { Authorization: `Bearer ${token}` } }).then(({ data: { message } }) => console.log(message))
+                .then(setForceRefetch(Math.random()))
+                .then(() => setForceRefetch(Math.random()));
     };
 
     return (

@@ -16,14 +16,13 @@ export default function Fetch({
     },
     renderSuccess,
     useCache = false,
-    reloadVar = false,
-    reloadMethod = () => { },
 }) {
     const { token, cache, setCache } = useDataContext();
     const [loading, setLoading] = useState(true);
     const [data, setData] = useState();
     const [error, setError] = useState();
 
+    // to force refetch
     const [forceRefetch, setForceRefetch] = useState();
 
     useEffect(() => {
@@ -46,12 +45,12 @@ export default function Fetch({
                 });
         }
         // component unmount
-        return () => cancelTokenSource.cancel(`request canceled`);
+        // return () => cancelTokenSource.cancel(`request canceled`);
 
-    }, [reloadVar, cache, setCache, token, uri, forceRefetch]);
+    }, [cache, setCache, token, uri, forceRefetch]);
 
     if (loading) return renderLoading;
     if (error) return renderError(error)
-    if (data) return renderSuccess(data, reloadMethod, token, setForceRefetch);
+    if (data) return renderSuccess(data, token, setForceRefetch);
 
 };
