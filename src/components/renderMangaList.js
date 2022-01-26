@@ -18,11 +18,9 @@ const Manga = manga => {
     return (
 
         <div key={manga.id} className="text-center shadow-md mt-12 w-40">
-            {/* px-1 my-5 py-5 w-4/5 md:w-3/5 */}
 
             {/* manga.coverImagePath */}
-
-            <img src={manga.coverImagePath} width="140" height="220" alt={manga.name} loading="lazy" className="rounded-sm object-cover mx-auto" />
+            <img src={manga.coverImagePath} alt={manga.name} className="w-36 h-56 object-cover mx-auto" width="144" height="224" loading="lazy" />
 
             <Link to={`/manga/${manga.id}`}>
                 <div className="p-2">

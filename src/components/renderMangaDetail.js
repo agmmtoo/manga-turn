@@ -1,9 +1,11 @@
 import Fetch from "./hooks/Fetch";
 import renderChapterList from "./renderChapterList";
 import "../index.css";
-import { ImStarEmpty, ImPen, ImHourGlass, ImCalendar, ImEye } from "react-icons/im";
+import { ImStarFull, ImStarEmpty, ImPen, ImHourGlass, ImCalendar, ImEye } from "react-icons/im";
 
-import { baseUrl, apiUrl, allChapter } from "../api-endpoints";
+import { baseUrl, apiUrl, allChapter, addFavourite, removeFavourite } from "../api-endpoints";
+import axios from "axios";
+// import { useDataContext } from "./hooks/data-context";
 
 const renderMangaDetail = ({
     id,
@@ -18,9 +20,20 @@ const renderMangaDetail = ({
     uploadedByUser = {},
     updatedDateInMilliSeconds,
     views,
-    genreList = []
-}) => {
+    genreList = [],
+    favourite,
+}, token, setForceRefetch) => {
     const URL = `${baseUrl}${apiUrl}${allChapter}${id}?size=1000`;
+
+    const handleFavourite = () => {
+        favourite
+            ? axios.delete(`${baseUrl}${apiUrl}${removeFavourite}${id}`, { headers: { Authorization: `Bearer ${token}` } })
+                .then(({ data: { message } }) => console.log(message))
+                .then(() => setForceRefetch(Math.random()))
+            : axios.post(`${baseUrl}${apiUrl}${addFavourite}${id}`, {}, { headers: { Authorization: `Bearer ${token}` } }).then(({ data: { message } }) => console.log(message))
+                .then(setForceRefetch(Math.random()))
+                .then(() => setForceRefetch(Math.random()));
+    };
 
     return (
         <>
@@ -33,7 +46,7 @@ const renderMangaDetail = ({
                 <div className="my-7 flex flex-wrap justify-center gap-2 text-sm">
                     {genreList.map(g => <div key={g.id} className="border px-3 py-1 border-gray-600 dark:border-gray-300 rounded-3xl">{g.name}</div>)}
                 </div>
-                <div className="my-7 text-xs flex mx-auto justify-evenly max-w-md">
+                <div className="my-7 text-xs flex mx-auto justify-evenly flex-nowrap max-w-md">
                     <div><ImPen size={15} /></div><div>{author}</div>
                     <div><ImCalendar size={15} /></div><div>{publishedDate}</div>
                     <div><ImHourGlass size={15} /></div><div>{status}</div>
@@ -44,7 +57,11 @@ const renderMangaDetail = ({
                         {uploadedBy}
                     </div>
                     <div className="p-5 cursor-pointer">
-                        <ImStarEmpty size={35} />
+                        <button onDoubleClick={handleFavourite}>
+                            {favourite
+                                ? <ImStarFull size={35} />
+                                : <ImStarEmpty size={35} />}
+                        </button>
                     </div>
                 </div>
                 <div className="m-7 text-justify">{description}</div>

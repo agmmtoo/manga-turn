@@ -1,9 +1,10 @@
 import axios from "axios";
+import { baseUrl, apiUrl, loginUrl, registerUrl } from "../../api-endpoints";
 
 export default async function LoginFetch({ mode, username, password }) {
     let uri = {
-        login: `https://mangaturn.games/dev/api/auth/login`,
-        signup: `https://mangaturn.games/dev/api/auth/signup`
+        login: `${baseUrl}${apiUrl}${loginUrl}`,
+        signup: `${baseUrl}${apiUrl}${registerUrl}`,
     };
     uri = uri[mode];
     console.log(mode, username, password);

@@ -11,6 +11,7 @@ export default function HomePage() {
         <Fetch
             uri={uri}
             renderSuccess={renderMangaList}
+            useCache={true}
         />
     );
 };

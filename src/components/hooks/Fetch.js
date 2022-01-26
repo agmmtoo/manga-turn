@@ -15,11 +15,15 @@ export default function Fetch({
         );
     },
     renderSuccess,
+    useCache = false,
 }) {
     const { token, cache, setCache } = useDataContext();
     const [loading, setLoading] = useState(true);
     const [data, setData] = useState();
     const [error, setError] = useState();
+
+    // to force refetch
+    const [forceRefetch, setForceRefetch] = useState();
 
     useEffect(() => {
         const cancelTokenSource = axios.CancelToken.source();
@@ -29,7 +33,10 @@ export default function Fetch({
         }
         else {
             axios.get(uri, { headers: { Authorization: `Bearer ${token}` }, cancelToken: cancelTokenSource.token })
-                .then(({ data }) => { setCache(uri, data); setData(data) })
+                .then(({ data }) => {
+                    if (useCache) setCache(uri, data);
+                    setData(data)
+                })
                 .then(() => setLoading(false)) // <== this go up and i'm goneeeeee
                 .catch(e => {
                     setError(e);
@@ -38,12 +45,12 @@ export default function Fetch({
                 });
         }
         // component unmount
-        return () => cancelTokenSource.cancel();
+        // return () => cancelTokenSource.cancel(`request canceled`);
 
-    }, [cache, setCache, token, uri]);
+    }, [cache, setCache, token, uri, forceRefetch]);
 
     if (loading) return renderLoading;
     if (error) return renderError(error)
-    if (data) return renderSuccess(data);
+    if (data) return renderSuccess(data, token, setForceRefetch);
 
 };
