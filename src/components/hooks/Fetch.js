@@ -24,6 +24,8 @@ export default function Fetch({
     const [data, setData] = useState();
     const [error, setError] = useState();
 
+    const [forceRefetch, setForceRefetch] = useState();
+
     useEffect(() => {
         const cancelTokenSource = axios.CancelToken.source();
         if (cache && cache[uri]) {
@@ -44,12 +46,12 @@ export default function Fetch({
                 });
         }
         // component unmount
-        return () => cancelTokenSource.cancel();
+        return () => cancelTokenSource.cancel(`request canceled`);
 
-    }, [reloadVar, cache, setCache, token, uri]);
+    }, [reloadVar, cache, setCache, token, uri, forceRefetch]);
 
     if (loading) return renderLoading;
     if (error) return renderError(error)
-    if (data) return renderSuccess(data, reloadMethod, token);
+    if (data) return renderSuccess(data, reloadMethod, token, setForceRefetch);
 
 };
