@@ -6,7 +6,7 @@ import LazyLoad from "react-lazyload";
 const renderMangaList = ({ mangaList }) => {
     return (
 
-        <div className="grid grid-cols-2 justify-items-center md:grid-cols-3 lg:grid-cols-4">
+        <div className="my-6 grid grid-cols-2 place-items-center md:grid-cols-3 lg:grid-cols-4">
             {mangaList.map(manga => Manga(manga))}
         </div>
     );
@@ -18,8 +18,7 @@ const Manga = manga => {
 
     return (
 
-        <div key={manga.id} className="text-center shadow-md mt-12 w-40">
-            {/* px-1 my-5 py-5 w-4/5 md:w-3/5 */}
+        <div key={manga.id} className="my-6 text-center shadow-md w-40">
 
             {/* manga.coverImagePath */}
             <LazyLoad

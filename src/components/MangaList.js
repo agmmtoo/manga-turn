@@ -11,7 +11,17 @@ export default function HomePage() {
         <Fetch
             uri={uri}
             renderSuccess={renderMangaList}
+            renderLoading={MangaListLoading()}
             useCache={true}
         />
+    );
+};
+
+const MangaListLoading = () => {
+    const items = new Array(8);
+    return (
+        <div className="my-6 grid grid-cols-2 place-items-center md:grid-cols-3 lg:grid-cols-4">
+            {[...items].map((n, i) => <div key={i} className="my-6 w-40 h-72 skeleton"></div>)}
+        </div>
     );
 };
