@@ -1,6 +1,7 @@
 // Dummy cover, since it's expensive to loade images over network mobile-data-wise
 import dummyCover from "./cover.png";
 import { Link } from "react-router-dom";
+import LazyLoad from "react-lazyload";
 
 const renderMangaList = ({ mangaList }) => {
     return (
@@ -21,8 +22,16 @@ const Manga = manga => {
             {/* px-1 my-5 py-5 w-4/5 md:w-3/5 */}
 
             {/* manga.coverImagePath */}
+            <LazyLoad
+                height={224}
+                placeholder={
+                    <div className="w-36 h-56 bg-gray-500 animate-pulse"></div>}
+                unmountIfInvisible={false}
+                debounce={true}
+            >
 
-            <img src={dummyCover} alt={manga.name} className="w-36 h-56 object-cover mx-auto" width="144" height="224" loading="lazy" />
+                <img src={manga.coverImagePath} alt={manga.name} className="w-36 h-56 object-cover mx-auto" width="144" height="224" loading="lazy" />
+            </LazyLoad>
 
             <Link to={`/manga/${manga.id}`}>
                 <div className="p-2">
