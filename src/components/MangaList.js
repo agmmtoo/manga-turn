@@ -17,7 +17,7 @@ export default function HomePage() {
     );
 };
 
-const MangaListLoading = () => {
+export const MangaListLoading = () => {
     const items = new Array(8);
     return (
         <div className="my-6 grid grid-cols-2 place-items-center md:grid-cols-3 lg:grid-cols-4">

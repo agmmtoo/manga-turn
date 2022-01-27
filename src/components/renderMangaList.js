@@ -14,7 +14,7 @@ const renderMangaList = ({ mangaList }) => {
 
 export default renderMangaList;
 
-const Manga = manga => {
+export const Manga = manga => {
 
     return (
 

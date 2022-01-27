@@ -5,6 +5,7 @@ import Error404 from "./components/Error404";
 import MangaDetail from "./components/MangaDetail";
 import ChapterDetail from "./components/ChapterDetail";
 import Home from "./components/Home";
+import UploaderDetail from "./components/UploaderDetail";
 
 const AppRoutes = () => {
     return (
@@ -14,6 +15,9 @@ const AppRoutes = () => {
                 <Route exact path="/mangas" component={MangaList} />
                 <Route exact path="/manga/:mangaId" component={MangaDetail} />
                 <Route exact path="/manga/:mangaId/chapter/:chapterId" component={ChapterDetail} />
+
+                <Route exact path="/uploader/:uploaderId" component={UploaderDetail} />
+
                 <Route component={Error404} />
             </Switch>
         </App>
