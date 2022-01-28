@@ -67,7 +67,7 @@ const renderMangaDetail = ({
                         </button>
                     </div>
                 </div>
-                <div className="m-7 text-justify">{description}</div>
+                <div className="m-7 text-justify desc">{description}</div>
             </div>
             <Fetch
                 uri={URL}

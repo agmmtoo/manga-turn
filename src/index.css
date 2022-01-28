@@ -1,6 +1,4 @@
 @tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 @layer base {
   body {
@@ -21,10 +19,23 @@
   a svg {
     @apply inline-flex align-baseline;
   }
+
+  @font-face {
+    font-family: "Mmfont";
+    src: local("YoeYarOne"), url(./fonts/YoeYarOne.woff) format("woff");
+  }
 }
+
+@tailwind components;
 
 @layer components {
   .skeleton {
     @apply bg-gray-300 dark:bg-gray-500 animate-pulse mx-auto;
   }
+
+  .desc {
+    @apply font-mm text-base leading-8 tracking-wide;
+  }
 }
+
+@tailwind utilities;
