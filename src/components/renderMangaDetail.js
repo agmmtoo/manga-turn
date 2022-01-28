@@ -39,7 +39,7 @@ const renderMangaDetail = ({
     return (
         <>
             <div className="mx-auto">
-                <img src={coverImagePath} alt={name} className="my-7 mx-auto w-4/5 md:w-1/4 shadow-md" />
+                <img src={coverImagePath} alt={name} className="my-7 mx-auto w-3/4 md:w-1/4 shadow-md" />
                 <div className="text-center my-7">
                     <h1 className="text-2xl">{name}</h1>
                     <h2 className="">{otherNames}</h2>

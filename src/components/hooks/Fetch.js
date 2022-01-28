@@ -7,6 +7,7 @@ export default function Fetch({
     uri,
     renderLoading = <ImSpinner9 className="animate-spin" />,
     renderError = e => {
+        console.log(e);
         return (
             <>
                 <p style={{ color: 'red' }}>{e.message}</p>
