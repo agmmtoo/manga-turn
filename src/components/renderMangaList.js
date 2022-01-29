@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-// Dummy cover, since it's expensive to loade images over network mobile-data-wise
-// import dummyCover from "./cover.png";
-=======
->>>>>>> dev
 import { Link } from "react-router-dom";
 import LazyLoad from "react-lazyload";
 
