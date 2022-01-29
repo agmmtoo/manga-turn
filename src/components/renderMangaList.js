@@ -24,16 +24,16 @@ export const Manga = manga => {
             <LazyLoad
                 height={224}
                 placeholder={
-                    <div className="w-36 h-56 bg-gray-500 animate-pulse"></div>}
+                    <div className="w-36 h-56 skeleton"></div>}
                 unmountIfInvisible={false}
                 debounce={true}
             >
 
-                <img src={manga.coverImagePath} alt={manga.name} className="w-36 h-56 object-cover mx-auto" width="144" height="224" loading="lazy" />
+                <img src={manga.coverImagePath} alt={manga.name} className="my-2 w-36 h-56 object-cover mx-auto" width="144" height="224" loading="lazy" />
             </LazyLoad>
 
             <Link to={`/manga/${manga.id}`}>
-                <div className="p-2">
+                <div className="px-2">
                     <div className="overflow-hidden overflow-ellipsis whitespace-nowrap text-sm">{manga.name}</div>
                     <div className="overflow-hidden overflow-ellipsis whitespace-nowrap text-xs">{manga.uploadedBy}</div>
                 </div>
