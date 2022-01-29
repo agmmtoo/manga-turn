@@ -1,10 +1,8 @@
 @tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 @layer base {
   body {
-    @apply bg-gray-200 text-gray-700 dark:bg-gray-600 dark:text-gray-200;
+    @apply bg-gray-200 text-gray-700 dark:bg-gray-800 dark:text-gray-300;
   }
 
   h1 {
@@ -21,4 +19,23 @@
   a svg {
     @apply inline-flex align-baseline;
   }
+
+  @font-face {
+    font-family: "Mmfont";
+    src: local("YoeYarOne"), url(./fonts/YoeYarOne.woff) format("woff");
+  }
 }
+
+@tailwind components;
+
+@layer components {
+  .skeleton {
+    @apply bg-gray-400 dark:bg-gray-500 animate-pulse mx-auto;
+  }
+
+  .desc {
+    @apply font-mm text-base leading-8 tracking-wide;
+  }
+}
+
+@tailwind utilities;

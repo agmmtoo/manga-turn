@@ -1,29 +1,51 @@
+<<<<<<< HEAD
 // Dummy cover, since it's expensive to loade images over network mobile-data-wise
 // import dummyCover from "./cover.png";
+=======
+>>>>>>> dev
 import { Link } from "react-router-dom";
+import LazyLoad from "react-lazyload";
 
-const renderMangaList = ({ mangaList }) => {
+const renderMangaList = ({ mangaList }, t, fr, giftFromParent) => {
+    const { searchTerm } = giftFromParent; // destruct searchTerm from MangaList through Fetch's giftFromParent
+
+    const filterManga = ({ name, uploadedBy }) => {
+        const s = searchTerm.toLowerCase();
+        const n = name.toLowerCase();
+        const u = uploadedBy.toLowerCase();
+
+        return (n.includes(s) || u.includes(s));
+    }
     return (
 
-        <div className="grid grid-cols-2 justify-items-center md:grid-cols-3 lg:grid-cols-4">
-            {mangaList.map(manga => Manga(manga))}
+        <div className="my-6 grid grid-cols-2 place-items-center md:grid-cols-3 lg:grid-cols-4">
+            {mangaList.filter(filterManga).map(manga => Manga(manga))}
         </div>
     );
 }
 
 export default renderMangaList;
 
-const Manga = manga => {
+export const Manga = manga => {
 
     return (
 
-        <div key={manga.id} className="text-center shadow-md mt-12 w-40">
+        <div key={manga.id} className="my-6 text-center shadow-md w-40">
 
             {/* manga.coverImagePath */}
-            <img src={manga.coverImagePath} alt={manga.name} className="w-36 h-56 object-cover mx-auto" width="144" height="224" loading="lazy" />
+            <LazyLoad
+                height={224}
+                placeholder={
+                    <div className="w-36 h-56 skeleton"></div>}
+                unmountIfInvisible={false}
+                debounce={true}
+            >
+
+                <img src={manga.coverImagePath} alt={manga.name} className="my-2 w-36 h-56 object-cover mx-auto" width="144" height="224" loading="lazy" />
+            </LazyLoad>
 
             <Link to={`/manga/${manga.id}`}>
-                <div className="p-2">
+                <div className="px-2 pb-2">
                     <div className="overflow-hidden overflow-ellipsis whitespace-nowrap text-sm">{manga.name}</div>
                     <div className="overflow-hidden overflow-ellipsis whitespace-nowrap text-xs">{manga.uploadedBy}</div>
                 </div>

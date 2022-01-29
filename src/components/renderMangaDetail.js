@@ -5,6 +5,7 @@ import { ImStarFull, ImStarEmpty, ImPen, ImHourGlass, ImCalendar, ImEye } from "
 
 import { baseUrl, apiUrl, allChapter, addFavourite, removeFavourite } from "../api-endpoints";
 import axios from "axios";
+import { Link } from "react-router-dom";
 // import { useDataContext } from "./hooks/data-context";
 
 const renderMangaDetail = ({
@@ -17,7 +18,7 @@ const renderMangaDetail = ({
     publishedDate,
     status,
     uploadedBy,
-    uploadedByUser = {},
+    uploadedByUser: { id: uploaderId, username: uploaderName },
     updatedDateInMilliSeconds,
     views,
     genreList = [],
@@ -38,7 +39,7 @@ const renderMangaDetail = ({
     return (
         <>
             <div className="mx-auto">
-                <img src={coverImagePath} alt={name} className="my-7 mx-auto w-4/5 md:w-1/4 shadow-md" />
+                <img src={coverImagePath} alt={name} className="my-7 mx-auto w-3/4 md:w-1/4 shadow-md" />
                 <div className="text-center my-7">
                     <h1 className="text-2xl">{name}</h1>
                     <h2 className="">{otherNames}</h2>
@@ -54,7 +55,9 @@ const renderMangaDetail = ({
                 </div>
                 <div className="border-t border-b border-gray-400 dark:border-gray-500 flex justify-around place-items-center">
                     <div className="p-5 cursor-pointer">
-                        {uploadedBy}
+                        <Link to={`/uploader/${uploaderId}`}>
+                            {uploaderName}
+                        </Link>
                     </div>
                     <div className="p-5 cursor-pointer">
                         <button onDoubleClick={handleFavourite}>
@@ -64,7 +67,7 @@ const renderMangaDetail = ({
                         </button>
                     </div>
                 </div>
-                <div className="m-7 text-justify">{description}</div>
+                <div className="m-7 text-justify desc">{description}</div>
             </div>
             <Fetch
                 uri={URL}

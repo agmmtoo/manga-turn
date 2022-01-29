@@ -15,8 +15,26 @@ const MangaDetail = () => {
         <Fetch
             uri={URL}
             renderSuccess={renderMangaDetail}
+            renderLoading={MangaDetailLoading()}
         />
     );
 }
 
 export default MangaDetail;
+
+const MangaDetailLoading = () => {
+    return (
+        <div className="w-screen h-screen">
+            <div className="skeleton my-7 w-3/6 h-3/6 md:w-1/4 md:h-4/5" />
+            <div className="my-7">
+                <div className="skeleton w-4/5 md:w-1/4 h-8" />
+                <div className="skeleton w-3/5 md:w-1/4 h-6" />
+                <div className="skeleton my-7 w-3/4 md:w-2/4 h-8" />
+                <div className="border-t border-b border-gray-400 dark:border-gray-500 flex justify-around place-items-center h-20">
+                    <div className="skeleton p-5 w-32 h-8" />
+                    <div className="skeleton p-5 w-9 h-9" />
+                </div>
+            </div>
+        </div>
+    );
+}
