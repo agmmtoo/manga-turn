@@ -1,12 +1,10 @@
-import Fetch from "./hooks/Fetch";
+import Fetch, { mtaxios } from "./hooks/Fetch";
 import renderChapterList from "./renderChapterList";
 import "../index.css";
 import { ImStarFull, ImStarEmpty, ImPen, ImHourGlass, ImCalendar, ImEye } from "react-icons/im";
 
-import { baseUrl, apiUrl, allChapter, addFavourite, removeFavourite } from "../api-endpoints";
-import axios from "axios";
+import { allChapter, addFavourite, removeFavourite } from "../api-endpoints";
 import { Link } from "react-router-dom";
-// import { useDataContext } from "./hooks/data-context";
 
 const renderMangaDetail = ({
     id,
@@ -24,14 +22,15 @@ const renderMangaDetail = ({
     genreList = [],
     favourite,
 }, token, setForceRefetch) => {
-    const URL = `${baseUrl}${apiUrl}${allChapter}${id}?size=1000`;
+    const URL = `${allChapter}${id}?size=1000`;
 
     const handleFavourite = () => {
         favourite
-            ? axios.delete(`${baseUrl}${apiUrl}${removeFavourite}${id}`, { headers: { Authorization: `Bearer ${token}` } })
+            ? mtaxios.delete(`${removeFavourite}${id}`, { headers: { Authorization: `Bearer ${token}` } })
                 .then(({ data: { message } }) => console.log(message))
                 .then(() => setForceRefetch(Math.random()))
-            : axios.post(`${baseUrl}${apiUrl}${addFavourite}${id}`, {}, { headers: { Authorization: `Bearer ${token}` } }).then(({ data: { message } }) => console.log(message))
+            : mtaxios.post(`${addFavourite}${id}`, {}, { headers: { Authorization: `Bearer ${token}` } })
+                .then(({ data: { message } }) => console.log(message))
                 .then(setForceRefetch(Math.random()))
                 .then(() => setForceRefetch(Math.random()));
     };

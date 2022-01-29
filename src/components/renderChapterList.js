@@ -1,8 +1,7 @@
 import "../index.css";
 import { Link } from "react-router-dom";
-
-import { baseUrl, apiUrl, purchaseChapter } from "../api-endpoints";
-import axios from "axios";
+import { mtaxios } from "./hooks/Fetch";
+import { purchaseChapter } from "../api-endpoints";
 
 // If I use useParams hook from 'react',
 // "hook order" react warning show
@@ -19,7 +18,7 @@ const renderChapterList = (data, token, setForceRefetch) => {
     }
 
     const handlePurchase = ({ target: { dataset: { cid } } }) => {
-        axios.post(`${baseUrl}${apiUrl}${purchaseChapter}${cid}`, {}, { headers: { Authorization: `Bearer ${token}` } })
+        mtaxios.post(`${purchaseChapter}${cid}`, {}, { headers: { Authorization: `Bearer ${token}` } })
             .then(({ data: { message } }) => console.log(message))
             .then(() => setForceRefetch(cid));
     }

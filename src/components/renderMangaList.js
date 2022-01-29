@@ -27,7 +27,6 @@ export const Manga = manga => {
 
         <div key={manga.id} className="my-6 text-center shadow-md w-40">
 
-            {/* manga.coverImagePath */}
             <LazyLoad
                 height={224}
                 placeholder={

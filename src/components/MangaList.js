@@ -1,13 +1,14 @@
 import Fetch from "./hooks/Fetch";
 import renderMangaList from "./renderMangaList";
-import { baseUrl, apiUrl, allManga } from "../api-endpoints";
+import { allManga } from "../api-endpoints";
 import { ImSearch } from "react-icons/im";
 import { useState } from "react";
 
 export default function HomePage() {
     // I chose 1000 for fetch size, 
     // it may increase network load
-    const uri = `${baseUrl}${apiUrl}${allManga}?size=1000`
+    // const uri = `${baseUrl}${apiUrl}${allManga}?size=1000`
+    const uri = `${allManga}?size=1000`;
     const [searchTerm, setSearchTerm] = useState('');
 
     const handleSearch = event => {

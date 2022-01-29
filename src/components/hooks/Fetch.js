@@ -3,6 +3,15 @@ import { useEffect, useState } from "react";
 import { useDataContext } from "./data-context";
 import { ImSpinner9 } from "react-icons/im";
 
+import { baseUrl, apiUrl } from "../../api-endpoints";
+
+
+export const mtaxios = axios.create({
+    baseURL: `${baseUrl}${apiUrl}`,
+    // onUploadProgress: e => { console.log('onUploadProgress', e) },
+    // onDownloadProgress: e => { console.log('onDownloadProgress', e) },
+})
+
 export default function Fetch({
     uri,
     renderLoading = <ImSpinner9 className="animate-spin" />,
@@ -27,14 +36,17 @@ export default function Fetch({
     // to force refetch
     const [forceRefetch, setForceRefetch] = useState();
 
+    // use custom axios instance - mtaxios
+    // set token in header as default
+    mtaxios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+
     useEffect(() => {
-        const cancelTokenSource = axios.CancelToken.source();
         if (cache && cache[uri]) {
             setLoading(false);
             setData(cache[uri]);
         }
         else {
-            axios.get(uri, { headers: { Authorization: `Bearer ${token}` }, cancelToken: cancelTokenSource.token })
+            mtaxios.get(uri)
                 .then(({ data }) => {
                     if (useCache) setCache(uri, data);
                     setData(data)
@@ -47,7 +59,7 @@ export default function Fetch({
                 });
         }
         // component unmount
-        // return () => cancelTokenSource.cancel(`request canceled`);
+        return () => console.log("component unmount");
 
     }, [cache, setCache, token, uri, forceRefetch]);
 

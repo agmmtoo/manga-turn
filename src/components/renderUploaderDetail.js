@@ -1,5 +1,5 @@
 import Fetch from "./hooks/Fetch";
-import { baseUrl, apiUrl, allManga } from "../api-endpoints";
+import { allManga } from "../api-endpoints";
 import renderMangaList from "./renderMangaList";
 import { MangaListLoading } from "./MangaList";
 
@@ -17,7 +17,7 @@ const renderUploaderDetail = ({
 }) => {
     // I chose 1000 for fetch size, 
     // it may increase network load
-    const uploadeMangasUri = `${baseUrl}${apiUrl}${allManga}?uploadedBy=${username}&size=1000`;
+    const uploadeMangasUri = `${allManga}?uploadedBy=${username}&size=1000`;
     return (
         <>
             <div className="my-7">
