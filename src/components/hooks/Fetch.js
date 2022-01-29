@@ -17,6 +17,7 @@ export default function Fetch({
     },
     renderSuccess,
     useCache = false,
+    giftFromParent = {}, // Pass obj from parent to child
 }) {
     const { token, cache, setCache } = useDataContext();
     const [loading, setLoading] = useState(true);
@@ -52,6 +53,6 @@ export default function Fetch({
 
     if (loading) return renderLoading;
     if (error) return renderError(error)
-    if (data) return renderSuccess(data, token, setForceRefetch);
+    if (data) return renderSuccess(data, token, setForceRefetch, giftFromParent);
 
 };

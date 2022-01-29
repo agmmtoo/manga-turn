@@ -1,13 +1,20 @@
-// Dummy cover, since it's expensive to loade images over network mobile-data-wise
-import dummyCover from "./cover.png";
 import { Link } from "react-router-dom";
 import LazyLoad from "react-lazyload";
 
-const renderMangaList = ({ mangaList }) => {
+const renderMangaList = ({ mangaList }, t, fr, giftFromParent) => {
+    const { searchTerm } = giftFromParent; // destruct searchTerm from MangaList through Fetch's giftFromParent
+
+    const filterManga = ({ name, uploadedBy }) => {
+        const s = searchTerm.toLowerCase();
+        const n = name.toLowerCase();
+        const u = uploadedBy.toLowerCase();
+
+        return (n.includes(s) || u.includes(s));
+    }
     return (
 
         <div className="my-6 grid grid-cols-2 place-items-center md:grid-cols-3 lg:grid-cols-4">
-            {mangaList.map(manga => Manga(manga))}
+            {mangaList.filter(filterManga).map(manga => Manga(manga))}
         </div>
     );
 }
@@ -33,7 +40,7 @@ export const Manga = manga => {
             </LazyLoad>
 
             <Link to={`/manga/${manga.id}`}>
-                <div className="px-2">
+                <div className="px-2 pb-2">
                     <div className="overflow-hidden overflow-ellipsis whitespace-nowrap text-sm">{manga.name}</div>
                     <div className="overflow-hidden overflow-ellipsis whitespace-nowrap text-xs">{manga.uploadedBy}</div>
                 </div>
