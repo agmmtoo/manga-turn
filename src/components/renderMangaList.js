@@ -5,7 +5,7 @@ const renderMangaList = ({ mangaList }, t, fr, giftFromParent) => {
     const { searchTerm } = giftFromParent; // destruct searchTerm from MangaList through Fetch's giftFromParent
 
     const filterManga = ({ name, uploadedBy }) => {
-        const s = searchTerm.toLowerCase();
+        const s = (searchTerm || "").toLowerCase();
         const n = name.toLowerCase();
         const u = uploadedBy.toLowerCase();
 
