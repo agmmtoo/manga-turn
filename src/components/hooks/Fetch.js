@@ -3,14 +3,15 @@ import { useEffect, useState } from "react";
 import { useDataContext } from "./data-context";
 import { ImSpinner9 } from "react-icons/im";
 
-import { baseUrl, apiUrl } from "../../api-endpoints";
+import { baseUrl, apiUrl, refreshToken } from "../../api-endpoints";
 
 
 export const mtaxios = axios.create({
     baseURL: `${baseUrl}${apiUrl}`,
     // onUploadProgress: e => { console.log('onUploadProgress', e) },
     // onDownloadProgress: e => { console.log('onDownloadProgress', e) },
-})
+});
+
 
 export default function Fetch({
     uri,
@@ -28,13 +29,34 @@ export default function Fetch({
     useCache = false,
     giftFromParent = {}, // Pass obj from parent to child
 }) {
-    const { token, cache, setCache } = useDataContext();
+    const { token, setToken, rtoken, cache, setCache } = useDataContext();
     const [loading, setLoading] = useState(true);
     const [data, setData] = useState();
     const [error, setError] = useState();
 
     // to force refetch
     const [forceRefetch, setForceRefetch] = useState();
+
+
+    // interceptor to check if token is valid
+    mtaxios.interceptors.response.use(
+        response => {
+            // intercept response here
+            return response;
+        },
+        error => {
+            // refresh token if expired
+            if (error.response.data.message === "Invalid JWT.") {
+                console.log("Token need to be refreshed.");
+                handleRefresh();
+            }
+            return Promise.reject(error);
+        });
+
+    const handleRefresh = async () => {
+        const { accessToken } = await fetch(`${baseUrl}${apiUrl}${refreshToken}${rtoken}`).then(r => r.json());
+        await setToken(accessToken);
+    }
 
     // use custom axios instance - mtaxios
     // set token in header as default
@@ -53,9 +75,15 @@ export default function Fetch({
                 })
                 .then(() => setLoading(false)) // <== this go up and i'm goneeeeee
                 .catch(e => {
-                    setError(e);
-                    console.log(e);
-                    setLoading(false);
+                    // I don't know specifically but
+                    // this line give axios' interceptor some time
+                    // to refresh the token, lmao
+                    if (e.response.data.message === "Invalid JWT.") return null;
+                    else {
+                        setError(e);
+                        console.log(e.response);
+                        setLoading(false);
+                    }
                 });
         }
         // component unmount

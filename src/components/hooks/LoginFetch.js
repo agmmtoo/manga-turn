@@ -7,7 +7,6 @@ export default async function LoginFetch({ mode, username, password }) {
         signup: `${baseUrl}${apiUrl}${registerUrl}`,
     };
     uri = uri[mode];
-    console.log(mode, username, password);
     return await axios.post(uri, { username, password })
         .catch(e => e.response);
 };

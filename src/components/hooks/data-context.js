@@ -1,4 +1,5 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext } from "react";
+import useToken from "./token-hook";
 
 // create context component
 const DataContext = createContext();
@@ -11,12 +12,14 @@ export const useDataContext = () => useContext(DataContext);
 // provider parent component need to be warpped in this exported component
 // add values to provide data to childern consumers
 export default function UserContextProvider({ children }) {
-    const [token, setToken] = useState(JSON.parse(localStorage.getItem("token")));
+
+    const [token, setToken, rtoken, setRToken] = useToken();
+
     const cache = {};
     const setCache = (uri, data) => cache[uri] = data;
 
     return (
-        <DataContext.Provider value={{ token, setToken, cache, setCache }}>
+        <DataContext.Provider value={{ token, setToken, rtoken, setRToken, cache, setCache }}>
             {children}
         </DataContext.Provider>
     )

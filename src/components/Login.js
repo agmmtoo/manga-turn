@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import LoginFetch from "./hooks/LoginFetch";
 
-const Login = ({ setLogin, setToken }) => {
+const Login = ({ setLogin, setToken, setRToken }) => {
     const [state, setState] = useState({ username: '', password: '' });
     const [error, setError] = useState();
     const inputOnChangeHandler = ({ target: { name, value } }) => setState({ ...state, [name]: value });
@@ -11,10 +11,15 @@ const Login = ({ setLogin, setToken }) => {
         // see @https://axios-http.com/docs/handling_errors
         const { username, password } = state;
 
+        // only keep refreshToken
+
         const res = await LoginFetch({ mode: "login", username, password });
-        console.log(res);
         if (res) switch (res.status) {
             case 200:
+                // order matters,
+                // otherwise, no refresh token
+                // since only token's prence is checked
+                setRToken(res.data.refreshToken);
                 setToken(res.data.accessToken);
                 break;
             case 400: setError(res.data.message);

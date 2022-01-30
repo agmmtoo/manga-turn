@@ -5,9 +5,9 @@ import Menu from "./components/Menu";
 import UserContextProvider from "./components/hooks/data-context";
 
 const App = ({ children }) => {
-  const [token, setToken] = useToken();
+  const [token, setToken, , setRToken] = useToken();
 
-  if (!token) return <NoToken setToken={setToken} />
+  if (!token) return <NoToken setToken={setToken} setRToken={setRToken} />
   return (
     <main>
       <Menu />
