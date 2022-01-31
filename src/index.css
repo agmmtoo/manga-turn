@@ -2,7 +2,7 @@
 
 @layer base {
   body {
-    @apply bg-gray-200 text-gray-700 dark:bg-gray-800 dark:text-gray-300;
+    @apply bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-200;
   }
 
   h1 {
@@ -21,8 +21,8 @@
   }
 
   @font-face {
-    font-family: "Mmfont";
-    src: local("YoeYarOne"), url(./fonts/YoeYarOne.woff) format("woff");
+    font-family: "YoeYar-One";
+    src: local("YoeYar-One"), url("./fonts/YoeYar-One.ttf") format("truetype");
   }
 }
 
@@ -34,7 +34,7 @@
   }
 
   .desc {
-    @apply font-mm text-base leading-8 tracking-wide;
+    @apply font-mm text-base leading-8;
   }
 }
 

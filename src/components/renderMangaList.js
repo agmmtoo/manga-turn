@@ -4,6 +4,12 @@ import LazyLoad from "react-lazyload";
 const renderMangaList = ({ mangaList }, t, fr, giftFromParent) => {
     const { searchTerm } = giftFromParent; // destruct searchTerm from MangaList through Fetch's giftFromParent
 
+    // sort by latest updated
+    const sortByLatestUpdated = (firstEl, secondEl) => secondEl.updatedDateInMilliSeconds - firstEl.updatedDateInMilliSeconds;
+
+    const sortedMangaList = [...mangaList].sort(sortByLatestUpdated)
+
+    // implement search
     const filterManga = ({ name, uploadedBy }) => {
         const s = (searchTerm || "").toLowerCase();
         const n = name.toLowerCase();
@@ -11,10 +17,11 @@ const renderMangaList = ({ mangaList }, t, fr, giftFromParent) => {
 
         return (n.includes(s) || u.includes(s));
     }
+
     return (
 
         <div className="my-6 grid grid-cols-2 place-items-center md:grid-cols-3 lg:grid-cols-4">
-            {mangaList.filter(filterManga).map(manga => Manga(manga))}
+            {sortedMangaList.filter(filterManga).map(manga => Manga(manga))}
         </div>
     );
 }
