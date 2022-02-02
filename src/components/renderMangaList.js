@@ -5,6 +5,7 @@ const renderMangaList = ({ mangaList }, t, fr, giftFromParent) => {
     const { searchTerm } = giftFromParent; // destruct searchTerm from MangaList through Fetch's giftFromParent
 
     // sort by latest updated
+    // funfact: parseInt() is no need, because JavaScript
     const sortByLatestUpdated = (firstEl, secondEl) => secondEl.updatedDateInMilliSeconds - firstEl.updatedDateInMilliSeconds;
 
     const sortedMangaList = [...mangaList].sort(sortByLatestUpdated)

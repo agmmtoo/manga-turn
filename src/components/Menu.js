@@ -18,7 +18,7 @@ const Menu = () => {
 };
 
 const Nav = ({ toggleMenu }) =>
-    <nav className="flex flex-col py-5 gap-8" onClick={toggleMenu}>
+    <nav className="flex flex-col py-5 gap-8 font-medium" onClick={toggleMenu}>
         <Link to="/mangas">All Manga</Link>
         <Link to="/">Home</Link>
         <Link to="/profile">Profile</Link>

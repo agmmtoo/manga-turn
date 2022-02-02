@@ -78,7 +78,7 @@ export default function Fetch({
                     // I don't know specifically but
                     // this line give axios' interceptor some time
                     // to refresh the token, lmao
-                    if (e.response.data.message === "Invalid JWT.") return null;
+                    if (e.response && e.response.data.message === "Invalid JWT.") return null;
                     else {
                         setError(e);
                         console.log(e.response);

@@ -1,4 +1,4 @@
-import { useParams } from "react-router";
+import { useParams } from "react-router-dom";
 import Fetch from "./hooks/Fetch";
 import renderChapterDetail from "./renderChapterDetail";
 import { chapter } from "../api-endpoints";
@@ -6,12 +6,11 @@ import { chapter } from "../api-endpoints";
 const ChapterDetail = () => {
     const { chapterId } = useParams();
 
-    const URL = `${chapter}${chapterId}?size=1000`;
-
     return (
         <Fetch
-            uri={URL}
+            uri={`${chapter}${chapterId}?size=1000`}
             renderSuccess={renderChapterDetail}
+            useCache={true}
         />
     );
 };

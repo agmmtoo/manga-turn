@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'mm': ['YoeYar-One',]
+        'mm': ['YoeYarOne',],
       },
     },
   },

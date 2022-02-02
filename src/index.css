@@ -21,8 +21,8 @@
   }
 
   @font-face {
-    font-family: "YoeYar-One";
-    src: local("YoeYar-One"), url("./fonts/YoeYar-One.ttf") format("truetype");
+    font-family: "YoeYarOne";
+    src: local("YoeYarOne"), url(./fonts/YoeYar-One.ttf) format("truetype");
   }
 }
 

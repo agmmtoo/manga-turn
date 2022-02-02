@@ -24,9 +24,14 @@ const renderChapterList = (data, token, setForceRefetch) => {
     }
 
     return (
-        <div className="my-7 flex flex-col" onDoubleClick={handlePurchase}>
-            {chapterList.map(Chapter)}
-        </div>
+        <>
+            <div className="my-7 text-center">
+                {totalElements} Chapter{(totalElements > 1) ? "s" : ""}
+            </div>
+            <div className="my-7 flex flex-col" onDoubleClick={handlePurchase}>
+                {chapterList.map(Chapter)}
+            </div>
+        </>
     );
 
 };

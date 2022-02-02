@@ -4,7 +4,7 @@ import { allManga } from "../api-endpoints";
 import { ImSearch } from "react-icons/im";
 import { useState } from "react";
 
-export default function HomePage() {
+export default function MangaList() {
     // I chose 1000 for fetch size, 
     // it may increase network load
     // const uri = `${baseUrl}${apiUrl}${allManga}?size=1000`

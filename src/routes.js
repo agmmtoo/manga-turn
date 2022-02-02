@@ -6,12 +6,15 @@ import MangaDetail from "./components/MangaDetail";
 import ChapterDetail from "./components/ChapterDetail";
 import Home from "./components/Home";
 import UploaderDetail from "./components/UploaderDetail";
+import Profile from "./components/Profile";
 
 const AppRoutes = () => {
     return (
         <App>
             <Switch>
                 <Route exact path="/" component={Home} />
+                <Route exact path="/profile" component={Profile} />
+
                 <Route exact path="/mangas" component={MangaList} />
                 <Route exact path="/manga/:mangaId" component={MangaDetail} />
                 <Route exact path="/manga/:mangaId/chapter/:chapterId" component={ChapterDetail} />

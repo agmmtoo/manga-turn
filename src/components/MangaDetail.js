@@ -1,7 +1,8 @@
 import { useParams } from "react-router-dom"; // if user came from state
 import Fetch from "./hooks/Fetch"; // if user came from link
 import renderMangaDetail from "./renderMangaDetail";
-import { manga } from "../api-endpoints";
+import renderChapterList from "./renderChapterList";
+import { manga, allChapter } from "../api-endpoints";
 
 const MangaDetail = () => {
     // See @ https://ui.dev/react-router-v5-pass-props-to-link/
@@ -9,14 +10,18 @@ const MangaDetail = () => {
     // get mangaId from url bar
     const { mangaId } = useParams();
 
-    const URL = `${manga}${mangaId}`;
-
     return (
-        <Fetch
-            uri={URL}
-            renderSuccess={renderMangaDetail}
-            renderLoading={MangaDetailLoading()}
-        />
+        <>
+            <Fetch
+                uri={`${manga}${mangaId}`}
+                renderSuccess={renderMangaDetail}
+                renderLoading={MangaDetailLoading()}
+            />
+            <Fetch
+                uri={`${allChapter}${mangaId}?size=1000`}
+                renderSuccess={renderChapterList}
+            />
+        </>
     );
 }
 
@@ -25,7 +30,7 @@ export default MangaDetail;
 const MangaDetailLoading = () => {
     return (
         <div className="w-screen h-screen">
-            <div className="skeleton my-7 w-3/6 h-3/6 md:w-1/4 md:h-4/5" />
+            <div className="skeleton my-7 w-3/6 h-2/5 md:w-1/4 md:h-4/5" />
             <div className="my-7">
                 <div className="skeleton w-4/5 md:w-1/4 h-8" />
                 <div className="skeleton w-3/5 md:w-1/4 h-6" />
