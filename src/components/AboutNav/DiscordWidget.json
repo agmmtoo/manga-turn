@@ -1,0 +1,124 @@
+{
+  "id": "804212786586320937",
+  "name": "Manga Turn",
+  "instant_invite": "https://discord.com/invite/YGcQ8hDB",
+  "channels": [{ "id": "808157028278468618", "name": "Music", "position": 0 }],
+  "members": [
+    {
+      "id": "0",
+      "username": "[SG]Aki (4Madara5)",
+      "discriminator": "0000",
+      "avatar": null,
+      "status": "online",
+      "avatar_url": "https://cdn.discordapp.com/widget-avatars/nkJXW9Q8-jwSCv6YVExRH9BypWmBS8dlHeTfSiNlrxY/WoIWdBLVBeX8ps1kpJaWz7Sv4soD0NN1H6x9TOCcY7SzhLqpuo9_xlPZqyhKeDrjNxz0ic_hcXwfCH2pJqsgSa_2_sih8sg3clhSGAECLrgK5IHtsaHoWfcNiIFUAtW09ksqt2NwtKMEKw"
+    },
+    {
+      "id": "1",
+      "username": "Astery",
+      "discriminator": "0000",
+      "avatar": null,
+      "status": "online",
+      "avatar_url": "https://cdn.discordapp.com/widget-avatars/tyFfuiqwcEjECxwnuKoiHq3OtknZ-2HEuRTL-3iyRn0/7JITdeo1dHrjowMJM72cyOdK-G7ZPmMoCOo_nPRfdq0Xv34lofPoJRh7XsM1_tknqi17xIAOgZ6bk9fQdDM2sWl7_BKBX8H1WpBYmZt7i2p6DDGDKTAkzBlU-SdGfBtw09pAKB63bd7Pkg"
+    },
+    {
+      "id": "2",
+      "username": "being",
+      "discriminator": "0000",
+      "avatar": null,
+      "status": "online",
+      "avatar_url": "https://cdn.discordapp.com/widget-avatars/piNjRLjCrFuzV3QVBMxoOoTDC5GyZq-keXxMy9zHuxc/P9hvOl_jRgxeOIDR3njYfHG3vIxAhKCy029AoMBX1nKZws6Ie4iAF3t7fgmLGqzffGLouFtPfkSwD7D4zwks0EgVuwwkR8XMC2OQGqaM9MrukxHUQ-hIYEFtDSMLmeRnRngLWZ8TusPAPw"
+    },
+    {
+      "id": "3",
+      "username": "Hiroshi",
+      "discriminator": "0000",
+      "avatar": null,
+      "status": "idle",
+      "avatar_url": "https://cdn.discordapp.com/widget-avatars/HULP843Gmp9of2iNebGNQatsLmf-fSXW0_n9ZenqIvI/KeaUEbRx1uPcdJUqY1us_GSr-IzDo7fq-7lFNGHHAUTMhpqmJVo2QF5UbpcO_oQ7dJ_xY32REgF9eHEDxmTsF7qo7_q0x54VwfSrKf7ydXbitF4Pf-2qoZa-jK2HY1HuFCAC1A9a39UFKg"
+    },
+    {
+      "id": "4",
+      "username": "Johnsy",
+      "discriminator": "0000",
+      "avatar": null,
+      "status": "online",
+      "avatar_url": "https://cdn.discordapp.com/widget-avatars/c64qWacN21F47ZCaBcGhMrnc4_ZyDRXUu95G2DryC3M/ielRF1-rYq1FHOLCxbI_6gPNZ7CaBqWn6nlQhiTNUR1qCbmdJWQMVT0jq-7zPtobpE1vqRHxVOfGMQHyYaauO9Jkbco9wXjLN3z6-MVhNk7P7jor-_0hwQ3MVVZ9Hql25Kl_d5OcTpSZSA"
+    },
+    {
+      "id": "5",
+      "username": "N.Kuro",
+      "discriminator": "0000",
+      "avatar": null,
+      "status": "online",
+      "avatar_url": "https://cdn.discordapp.com/widget-avatars/ikDOfAbCukAoUyzZqpGh51f10xmWgJduuQAgf2ma9mE/33gmUTwAB-6cVHm7xet4MFHPG40KVx88eq3hHKUkbcdxndnwvE8s3_JeKGf28dDYbL2RXhSCPXSx0B68TsUkDtYzV_trMcRmU3Kk4wXaM641kOmstj5s0mUh_0D3uJexp9DZ6mkRhWLrjw"
+    },
+    {
+      "id": "6",
+      "username": "ProBot \u2728",
+      "discriminator": "0000",
+      "avatar": null,
+      "status": "online",
+      "game": { "name": "/help" },
+      "avatar_url": "https://cdn.discordapp.com/widget-avatars/1vGR0Dlln8gNE35sv6dcN6M04zzZDtJ7sM0y_tE_gEA/jc-BhnuzhsfW0ycTExi5jh3Qy2WwW_AZ3i26XXJ6y-4WJ6v5d9r163hfxAkR2l-32I_08K9g32sIwaO7nmhYNdZlTsmwet0BYX0qgDtLLaH5ExT2uEm19kyLoXcjoMeA8kP1Hxy354rD4g"
+    },
+    {
+      "id": "7",
+      "username": "RemindMeToStudy",
+      "discriminator": "0000",
+      "avatar": null,
+      "status": "online",
+      "avatar_url": "https://cdn.discordapp.com/widget-avatars/7tSbK-iQZi7xKRcz5Wj3q2aVnsPGiQkSckz7qz5OW9w/XuKPLyJ5jBxQt8cqFM4Nf1ZyhCSH2B48EGQNmGSy8W2GxrPkG-nuA5sMOx2FmB2ehZ4kiWbUwh5OVXY5LC7vsn3saOaukFYMUizydeYMUARJR3bT13vMWfL0mS7MNAWc8v1O95ZamK7Z4Q"
+    },
+    {
+      "id": "8",
+      "username": "Sameheda",
+      "discriminator": "0000",
+      "avatar": null,
+      "status": "online",
+      "game": { "name": "VALORANT" },
+      "avatar_url": "https://cdn.discordapp.com/widget-avatars/l1f_7nb7YLVLMb_p_ELzs601pst1fTrcWkgh40kUDfY/R3_GASTl39DcUliJ3vrao2e1zPN8LQrddivVv09yejjw9cBjvyXQCAvSTElOodAfgTwUm1s8whMsdpFiwSlssO5yuwW5leYQsS6KtnsWbYNnuflknthETyp7kQfqlt-QV04Eo_TVybYGtQ"
+    },
+    {
+      "id": "9",
+      "username": "ServerStats",
+      "discriminator": "0000",
+      "avatar": null,
+      "status": "online",
+      "avatar_url": "https://cdn.discordapp.com/widget-avatars/72qnkqMyZWUGnxraDLW1_myVGEqPDrhknGGAD-B4P9Q/IUwQcc8Sm17QCusdHvlUvxiiPo5FdYET38-Uso-5L_c7GE3HWGEWt9U2AeVLPg0H-pHJMenU9znRM9uYwAq3GgC7Bbnh76Zxrg5xBQvZf4RRE86EhdFXoknOz2Sh-yiQcijNQ-o70ZpjOA"
+    },
+    {
+      "id": "10",
+      "username": "Touka's boi",
+      "discriminator": "0000",
+      "avatar": null,
+      "status": "idle",
+      "avatar_url": "https://cdn.discordapp.com/widget-avatars/8R57y0YjCoRhKyOtZi6J1Txd08mf1RzUZVOkZWyUcA0/kH24KAGQt9HOsZ39DPucNccXXCT_EgkEHIpKFbGHcRXvgGl_M8rYH-wjwlabyQzJMgEm6HsGywjL8VTaSM2xMGs3BFqAZ7GfpTYbV_pAy9pj1gOBHh7QMuyK9RhShgmKI3qIncgNmsBXFQ"
+    },
+    {
+      "id": "11",
+      "username": "zayaminlwin",
+      "discriminator": "0000",
+      "avatar": null,
+      "status": "online",
+      "avatar_url": "https://cdn.discordapp.com/widget-avatars/KXDGPyVAVrvUhCRh9MOwKI-pVOWNPKTFW-6bqS2HO2E/KgYpgEZ-sGRIbIAHZ4rO-rpWK9XhVu4IjHVoWh2nec_v6E9sIFd1hgwmIdrci4ep2ERD-cNcB8VpVkkYpw576aXrMLTghauZbCM_sl_1yy8KNc3sUJybLdUFHzY62zVGHZuiM5PjUVWYbg"
+    },
+    {
+      "id": "12",
+      "username": "\u26a1  FlashMm\u26a1",
+      "discriminator": "0000",
+      "avatar": null,
+      "status": "online",
+      "game": { "name": "Heroes of Newerth" },
+      "avatar_url": "https://cdn.discordapp.com/widget-avatars/e4mjgkfULDQmZMzSkGnkA1anPElxgWZAXLfCurucDm4/l-ss30-H0U_J1RTA-PnJBSb2vDZkftnkdfGjV7QXrdkGp_l2hpMcZ8qf30_LNkJpqAYz3jS1QUuhWk44Hiyp1yfqMbJfSyA53MX7ZeMz_pleumuV1WAEIVmtmfiqlYWL7Vdee_kAJYVmbg"
+    },
+    {
+      "id": "13",
+      "username": "\u30d0\u30e9",
+      "discriminator": "0000",
+      "avatar": null,
+      "status": "idle",
+      "avatar_url": "https://cdn.discordapp.com/widget-avatars/cb6w-Tg_4X8LbfROl1z7HFLXZ8x6kMoDVOnQo2oz70A/7OZ9yk8bVaUUjBd6TrS4ITk0mcF9K_59uQLLWR1xXNlHCWsxBdY7iZNuLFHeuzqk3au4CwaFzD1kiP9IC1ABtDxFnboM-DbELcZdkGPfrU39mBPYtWqzsW6s0rk68Ayk4AOJenJEeGrpvw"
+    }
+  ],
+  "presence_count": 18
+}

@@ -7,12 +7,15 @@ import ChapterDetail from "./components/ChapterDetail";
 import Home from "./components/Home";
 import UploaderDetail from "./components/UploaderDetail";
 import Profile from "./components/Profile";
+import About from "./components/About";
 
 const AppRoutes = () => {
     return (
         <App>
             <Switch>
                 <Route exact path="/" component={Home} />
+                <Route exact path="/about" component={About} />
+
                 <Route exact path="/profile" component={Profile} />
 
                 <Route exact path="/mangas" component={MangaList} />
