@@ -5,17 +5,6 @@
     @apply bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-200;
   }
 
-  h1 {
-    @apply text-lg font-bold;
-  }
-  h2 {
-    @apply text-base font-semibold;
-  }
-
-  p {
-    @apply text-sm;
-  }
-
   a svg {
     @apply inline-flex align-baseline;
   }
@@ -35,6 +24,22 @@
 
   .desc {
     @apply font-mm text-base leading-8;
+  }
+
+  .nav-link {
+    @apply hover:underline hover:text-indigo-800 dark:hover:text-indigo-400;
+  }
+
+  .input-mt {
+    @apply appearance-none text-sm leading-tight py-2 px-4 rounded border-2 border-gray-300 dark:border-gray-700 bg-gray-200 dark:bg-gray-700 focus:outline-none focus:border-indigo-800 dark:focus:border-indigo-400;
+  }
+
+  .form-btn {
+    @apply px-4 py-2 capitalize border rounded border-gray-300 dark:border-gray-700;
+  }
+
+  .error {
+    @apply text-red-500;
   }
 }
 

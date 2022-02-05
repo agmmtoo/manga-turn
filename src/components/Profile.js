@@ -1,7 +1,7 @@
 import Fetch from "./hooks/Fetch";
 import { profile } from "../api-endpoints";
 import { useDataContext } from "./hooks/data-context";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 
 const Profile = () => {
     const { setToken, setRToken } = useDataContext();
@@ -45,14 +45,19 @@ const renderProfile = ({
     const { logout } = giftFromParent;
     return (
         <div className="my-7 flex flex-col md:flex-row justify-center md:items-center">
-            <img
+            {profileUrl && <img
                 src={profileUrl}
                 alt={username}
                 className="mx-auto rounded-full w-48 h-48 md:w-64 md:h-64 object-cover shadow-md"
-            />
+            />}
             <div className="w-full md:w-3/5">
-                <div className="my-7 text-center text-lg">{username}</div>
-                <div className="my-7 text-center text-7xl font-medium">{point} <span className="font-normal text-xl">Pts</span></div>
+                <div className="my-7 text-center text-lg tracking-wider">
+                    <Link to="profile/update-profile">{username}</Link></div>
+                <div className="my-7 text-center text-7xl font-medium">
+                    <Link to="/profile/purchase-points">
+                        {point} <span className="font-normal text-xl">Pts</span>
+                    </Link>
+                </div>
                 <div className="my-7 w-full flex flex-col items-center">
                     <button
                         className="w-3/4 md:w-2/4 text-center py-4 md:py-3 border border-gray-500"

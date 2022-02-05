@@ -23,14 +23,14 @@ const Register = ({ setLogin }) => {
 
     return (
         <div className="mt-10 w-full mx-auto max-w-md text-center ">
-            {error ? <p className="text-red-600 font-medium uppercase">{error}</p> : <p className="font-medium uppercase">Signup</p>}
+            {error ? <p className="error uppercase">{error}</p> : <p className="uppercase">Signup</p>}
             <form onSubmit={onSubmitHandler} className="m-10 p-5 shadow-lg rounded flex flex-col justify-center gap-5">
                 <input
                     name="username"
                     placeholder="username"
                     value={state.username}
                     onChange={inputOnChangeHandler}
-                    className="appearance-none bg-transparent py-2 px-2"
+                    className="input-mt"
                     required />
 
                 <input
@@ -39,10 +39,10 @@ const Register = ({ setLogin }) => {
                     placeholder="password"
                     value={state.password}
                     onChange={inputOnChangeHandler}
-                    className="appearance-none bg-transparent py-2 px-2"
+                    className="input-mt"
                     required />
 
-                {(state.password !== state.password2) && <p style={{ color: "red" }}>Passwords don\'t match.</p>}
+                {(state.password !== state.password2) && <div className="error">Passwords don't match.</div>}
 
                 <input
                     name="password2"
@@ -50,10 +50,10 @@ const Register = ({ setLogin }) => {
                     placeholder="type password again"
                     value={state.password2}
                     onChange={inputOnChangeHandler}
-                    className="appearance-none bg-transparent py-2 px-2"
+                    className="input-mt"
                     required />
 
-                {(state.password === state.password2) && <button className="px-4 py-2 capitalize font-semibold border rounded border-black dark:border-white">Register</button>}
+                {(state.password === state.password2) && <button className="form-btn">Register</button>}
             </form>
             Already have an account ? <button onClick={() => setLogin(true)} className="underline">login</button>.
         </div >

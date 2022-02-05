@@ -30,14 +30,14 @@ const Login = ({ setLogin, setToken, setRToken }) => {
 
     return (
         <div className="mt-10 w-full mx-auto max-w-md text-center">
-            {error ? <p className="text-red-600 font-medium uppercase">{error}</p> : <p className="font-medium uppercase">Login</p>}
+            {error ? <p className="error uppercase">{error}</p> : <p className="uppercase">Login</p>}
             <form onSubmit={onSubmitHandler} className="m-10 p-5 shadow-lg rounded flex flex-col justify-center gap-5">
                 <input
                     name="username"
                     placeholder="username"
                     value={state.username}
                     onChange={inputOnChangeHandler}
-                    className="appearance-none bg-transparent py-2 px-2"
+                    className="input-mt"
                     required />
 
                 <input
@@ -46,10 +46,10 @@ const Login = ({ setLogin, setToken, setRToken }) => {
                     placeholder="password"
                     value={state.password}
                     onChange={inputOnChangeHandler}
-                    className="appearance-none bg-transparent py-2 px-2"
+                    className="input-mt"
                     required />
 
-                <button className="px-4 py-2 capitalize font-semibold border rounded border-black dark:border-white">
+                <button className="form-btn">
                     Login
                 </button>
             </form>

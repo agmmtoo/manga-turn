@@ -7,6 +7,8 @@ import ChapterDetail from "./components/ChapterDetail";
 import Home from "./components/Home";
 import UploaderDetail from "./components/UploaderDetail";
 import Profile from "./components/Profile";
+import UpdateProfile from "./components/UpdateProfile";
+import PurchasePoints from "./components/PurchasePoints";
 import About from "./components/About";
 
 const AppRoutes = () => {
@@ -17,6 +19,8 @@ const AppRoutes = () => {
                 <Route exact path="/about" component={About} />
 
                 <Route exact path="/profile" component={Profile} />
+                <Route exact path="/profile/update-profile" component={UpdateProfile} />
+                <Route exact path="/profile/purchase-points" component={PurchasePoints} />
 
                 <Route exact path="/mangas" component={MangaList} />
                 <Route exact path="/manga/:mangaId" component={MangaDetail} />
