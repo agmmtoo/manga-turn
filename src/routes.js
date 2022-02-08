@@ -19,8 +19,8 @@ const AppRoutes = () => {
                 <Route exact path="/about" component={About} />
 
                 <Route exact path="/profile" component={Profile} />
-                <Route exact path="/profile/update-profile" component={UpdateProfile} />
-                <Route exact path="/profile/purchase-points" component={PurchasePoints} />
+                <Route exact path="/update-profile" component={UpdateProfile} />
+                <Route exact path="/purchase-points" component={PurchasePoints} />
 
                 <Route exact path="/mangas" component={MangaList} />
                 <Route exact path="/manga/:mangaId" component={MangaDetail} />

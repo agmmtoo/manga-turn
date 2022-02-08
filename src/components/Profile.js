@@ -45,16 +45,18 @@ const renderProfile = ({
     const { logout } = giftFromParent;
     return (
         <div className="my-7 flex flex-col md:flex-row justify-center md:items-center">
-            {profileUrl && <img
-                src={profileUrl}
-                alt={username}
-                className="mx-auto rounded-full w-48 h-48 md:w-64 md:h-64 object-cover shadow-md"
-            />}
+            {profileUrl && <Link to="update-profile">
+                <img
+                    src={profileUrl}
+                    alt={username}
+                    className="mx-auto rounded-full w-48 h-48 md:w-64 md:h-64 object-cover shadow-md"
+                />
+            </Link>}
             <div className="w-full md:w-3/5">
                 <div className="my-7 text-center text-lg tracking-wider">
-                    <Link to="profile/update-profile">{username}</Link></div>
+                    <Link to="update-profile">{username}</Link></div>
                 <div className="my-7 text-center text-7xl font-medium">
-                    <Link to="/profile/purchase-points">
+                    <Link to="purchase-points">
                         {point} <span className="font-normal text-xl">Pts</span>
                     </Link>
                 </div>
