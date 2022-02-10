@@ -1,8 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;400;500;600;700;800&display=swap");
+
 @tailwind base;
 
 @layer base {
   body {
-    @apply bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-200;
+    @apply bg-gray-100 text-gray-700 dark:bg-gray-900 dark:text-gray-200;
   }
 
   a svg {
@@ -12,6 +14,11 @@
   @font-face {
     font-family: "YoeYarOne";
     src: local("YoeYarOne"), url(./fonts/YoeYar-One.ttf) format("truetype");
+  }
+
+  @font-face {
+    font-family: "Pyidaungsu";
+    src: local("Pyidaungsu"), url(./fonts/Pyidaungsu.ttf) format("truetype");
   }
 }
 

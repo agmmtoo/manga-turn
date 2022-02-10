@@ -1,4 +1,4 @@
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 import App from "./App";
 import MangaList from "./components/MangaList";
 import Error404, { WhereYouGoin } from "./components/Error404";
@@ -10,6 +10,7 @@ import Profile from "./components/Profile";
 import UpdateProfile from "./components/UpdateProfile";
 import PurchasePoints from "./components/PurchasePoints";
 import About from "./components/About";
+import Blog from "./components/Blog";
 
 const AppRoutes = () => {
     return (
@@ -17,7 +18,7 @@ const AppRoutes = () => {
             <Switch>
                 <Route exact path="/" component={Home} />
                 <Route exact path="/about" component={About} />
-
+                <Route exact path="/blog" component={Blog} />
                 <Route exact path="/profile" component={Profile} />
                 <Route exact path="/update-profile" component={UpdateProfile} />
                 <Route exact path="/purchase-points" component={PurchasePoints} />
