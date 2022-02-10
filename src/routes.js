@@ -11,6 +11,7 @@ import UpdateProfile from "./components/UpdateProfile";
 import PurchasePoints from "./components/PurchasePoints";
 import About from "./components/About";
 import Blog from "./components/Blog";
+import FAQ from "./components/FAQ";
 
 const AppRoutes = () => {
     return (
@@ -19,6 +20,8 @@ const AppRoutes = () => {
                 <Route exact path="/" component={Home} />
                 <Route exact path="/about" component={About} />
                 <Route exact path="/blog" component={Blog} />
+                <Route exact path="/faq" component={FAQ} />
+
                 <Route exact path="/profile" component={Profile} />
                 <Route exact path="/update-profile" component={UpdateProfile} />
                 <Route exact path="/purchase-points" component={PurchasePoints} />

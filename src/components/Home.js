@@ -8,9 +8,9 @@ const Home = () => {
     return (
         <>
             <div>
-                <header>Welcome</header>
+                <header className="text-center my-7">Welcome</header>
             </div>
-            <div className="my-7 border-t border-gray-600 dark-border-gray-500">
+            <div className="my-7 border-t border-b border-gray-600 dark-border-gray-500">
                 <div className="mt-7 text-center uppercase font-medium">Favourite Mangas</div>
                 <Fetch
                     uri={`${getFavourite}`}

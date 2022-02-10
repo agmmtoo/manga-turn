@@ -12,7 +12,7 @@ ReactDOM.render(
         <nav className="flex flex-row pb-3 justify-around text-xl font-semibold">
           <Link to="/" className="nav-link">Home</Link>
           <Link to="/about" className="nav-link">About</Link>
-          <Link to="/blog" className="nav-link">Blog</Link>
+          <Link to="/faq" className="nav-link">FAQs</Link>
         </nav>
       </header>
       <AppRoutes />
